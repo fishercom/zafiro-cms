@@ -1,0 +1,1 @@
+@include('admin.article.partials.acceso_pagina')

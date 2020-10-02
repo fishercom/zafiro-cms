@@ -1,0 +1,41 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Order extends Model
+{
+	protected $table = 'orders';
+	protected $fillable = ['member_id', 'total', 'money', 'token_payment', 'session_id', 'verification', 'metadata', 'comments', 'status'];
+
+    public function member()
+    {
+        return $this->hasOne('App\Member', 'id', 'member_id');
+    }
+
+    public function quotation(){
+        return $this->hasOne('App\Quotation', 'id', 'quotation_id');
+    }
+
+    public function detail()
+    {
+        return $this->hasMany('App\OrderDetail', 'order_id', 'id');
+    }
+
+    public function payment()
+    {
+        return $this->hasOne('App\OrderPayment', 'order_id', 'id');
+    }
+
+    public function setMetadataAttribute($value)
+    {
+        $this->attributes['metadata'] = json_encode($value);
+    }
+
+    public function getMetadataAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+}
