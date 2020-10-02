@@ -7,7 +7,6 @@ $url_base= $url_root;
 $page_schema=$page->schema;
 
 $bloque_animacion=$page->child_template('bloque_animacion')->first();
-$bloque_widget=$page->child_template('bloque_widget')->first();
 
 ?>
 @section('content')
@@ -18,11 +17,7 @@ $bloque_widget=$page->child_template('bloque_widget')->first();
     @endif
 
       <div class="seccion_principal">
-        @include('front.product.partials.buscador')
-        @include('front.partials.home.bloque_materiales')
-        @include('front.company.partials.buscador')
-        @include('front.partials.home.bloque_ferreterias')
-        @include('front.partials.home.bloque_ofertas')
+
       </div>
     </section>
 @endsection
