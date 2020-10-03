@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'default_timezone'=>'America/Lima',
     'user_type' => [
         'MEMBER'=>'Miembro',
         'COMPANY'=>'Empresa'
