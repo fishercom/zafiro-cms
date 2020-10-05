@@ -25,7 +25,10 @@ class AdminPermission
         if(!$profile){
             //redirect to error page
             Auth::guard('admin')->logout();
-            return redirect('/login');
+    
+            return redirect()->back()
+                ->withInput()
+                ->with('error','Login failed, please try again!');
         }
 
         //Application Permissions Here!

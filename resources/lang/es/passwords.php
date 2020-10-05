@@ -1,10 +1,9 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Language Lines
+    | Password Reminder Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are the default lines which match reasons
@@ -13,10 +12,9 @@ return [
     |
     */
 
-    'reset' => '¡Su contraseña ha sido restablecida!',
-    'sent' => '¡Recordatorio de contraseña enviado!',
-    'token' => 'Este token de restablecimiento de contraseña es inválido.',
-    'user' => 'No se ha encontrado un usuario con esa dirección de correo.',
-    'throttled' => 'Por favor espere antes de volver a intentarlo.',
-    'password' => 'Las contraseñas deben tener al menos seis caracteres y coincidir con la confirmación.'
+    'reset'     => '¡Tu contraseña ha sido restablecida!',
+    'sent'      => '¡Te hemos enviado por correo el enlace para restablecer tu contraseña!',
+    'throttled' => 'Por favor espera antes de intentar de nuevo.',
+    'token'     => 'El token de recuperación de contraseña es inválido.',
+    'user'      => 'No podemos encontrar ningún usuario con ese correo electrónico.',
 ];

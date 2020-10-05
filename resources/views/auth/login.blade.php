@@ -4,7 +4,7 @@
 <div class="login-box-body">
 	<p class="login-box-msg">Iniciar Sesión</p>
 
-	<form role="form" method="POST" action="{{ url('/login') }}">
+	<form role="form" method="POST" action="{{ url('/admin/login') }}">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="form-group has-feedback">
 			<input type="text" class="form-control" name="email" value="{{ old('email') }}" placeholder="Usuario" autocomplete="off">
