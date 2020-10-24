@@ -36,9 +36,6 @@ class FrontController extends Controller {
 		$this->site = \App\CmsSite::where('default', true)->first();
 
 		View::share('site', $this->site);
-
-        date_default_timezone_set('America/Lima');
-        setlocale(LC_TIME, "es_PE");
 	}
 
     public function username()

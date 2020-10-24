@@ -64,7 +64,9 @@ class CompanyController extends AdminController {
     public function store(CompanyRequest $request)
     {
         $validator = Validator::make(Request::all(), [
-            'name' => 'required', 'ruc' => 'required', 'password' => 'required', 'email' => 'required|email|unique:users,email'
+            'name' => 'required', 'ruc' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required'
         ]);
 
         if ($validator->fails()) {

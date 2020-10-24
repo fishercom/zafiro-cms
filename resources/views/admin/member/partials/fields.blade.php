@@ -101,9 +101,9 @@ $status_list = Config::get('constants.member_status');
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('zip_code', 'Código Postal', ['class'=>'col-sm-3 col-lg-2 control-label']) !!}
+			{!! Form::label('postal', 'Código Postal', ['class'=>'col-sm-3 col-lg-2 control-label']) !!}
 			<div class="col-sm-9 col-lg-10">
-			{!! Form::text('zip_code', null, ['class'=>'form-control']) !!}
+			{!! Form::text('postal', null, ['class'=>'form-control']) !!}
 			</div>
 		</div>
 

@@ -53,6 +53,17 @@ class UserController extends AdminController {
 	 */
 	public function store(UserRequest $request)
 	{
+		$validator = Validator::make($request->all(), [
+			'email'=>'required|email|unique:users,email',
+			'password'=>'required'
+		]);
+
+		if ($validator->fails()) {
+			return redirect()->back()
+				->withInput($request->all())
+				->withErrors($validator);
+		}
+
 		$user = User::Create($request->all());
 
 		\App\Util\RegisterLog::add($user);

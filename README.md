@@ -1,2 +1,2 @@
-# zafiro-cms v1.32
+# zafiro-cms v1.35
 Laravel Framework 7.0

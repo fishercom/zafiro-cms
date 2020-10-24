@@ -74,7 +74,9 @@ class MemberController extends AdminController
     public function store(MemberRequest $request)
     {
         $validator = Validator::make(Request::all(), [
-            'name' => 'required', 'lastname' => 'required', 'password' => 'required', 'email' => 'required|email|unique:users,email', 'country_id' => 'required'
+            'name' => 'required', 'lastname' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required'
         ]);
 
         if ($validator->fails()) {

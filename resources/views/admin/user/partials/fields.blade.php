@@ -34,12 +34,15 @@ $profiles=\App\Profile::select()
 		</div>
 	</div>
 
+@if(!isset($user))
 	<div class="form-group">
 		{!! Form::label('password', 'Contraseña', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
 		<div class="col-sm-9 col-lg-11">
 		{!! Form::password('password', ['class'=>'form-control', 'autocomplete' => 'off']) !!}
 		</div>
 	</div>
+@endif
+
 	<div class="form-group">
 	  {!! Form::label('photo', 'Foto', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
 	  <div class="col-sm-9 col-lg-11">

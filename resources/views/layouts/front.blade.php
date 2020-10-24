@@ -22,6 +22,8 @@ $wrapper ='wrapper '. ($page->front_view=='seccion_home'? 'wrapper_home': 'wrapp
   <meta charset="utf-8">
   @yield('meta_tag')
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="{{ asset('/') }}css/bootstrap.min.css" media="screen">
+
   <script type="text/javascript">
     var URL_ROOT='{{ $url_root }}';
   </script>
@@ -33,7 +35,6 @@ $wrapper ='wrapper '. ($page->front_view=='seccion_home'? 'wrapper_home': 'wrapp
   @yield('payment_form')
 {!! $site_body_js !!}
   <div id="loader"></div>
-  <div class="fondo"></div>
   <div class="{{ $wrapper }}">  
     <header id="header">
       @include('front.partials.header')

@@ -12,9 +12,6 @@ class AdminController extends Controller {
 		//$this->middleware('auth');
 		//$this->middleware('admin');
 
-        date_default_timezone_set('America/Lima');
-        setlocale(LC_TIME, "es_PE");
-
     }
 
 }

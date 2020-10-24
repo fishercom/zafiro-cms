@@ -1,8 +1,5 @@
-			<div class="pull-right hidden-xs">
-			<b>Versión</b>
-				1.35
-			</div>
-			<strong>
-			Copyright © <a href="http://deepsoft.pe" target="_blank">deepsoft.pe</a>
-			</strong>
-			Todos los derechos reservados. 
+<div class="pull-right">
+v1.32
+</div>
+<a href="https://github.com/fishercom/zafiro-cms" target="_blank">Zafiro Cms</a>
+© Todos los derechos reservados. 

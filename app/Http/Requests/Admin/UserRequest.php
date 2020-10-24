@@ -26,7 +26,6 @@ class UserRequest extends Request {
 		return [
 			//'email'=>'required|email|unique:users,email', // validate for insert
 			'email'=>'required|email',
-			'password'=>'required',
 			'name'=>'required',
 			'lastname'=>'required',
 			'profile_id'=>'required'
