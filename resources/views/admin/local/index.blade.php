@@ -1,6 +1,6 @@
 <?php
 
-$company_list = \App\Company::select()->orderBy('name')->pluck('name', 'id');
+$company_list = \App\Models\Company::select()->orderBy('name')->pluck('name', 'id');
 
 ?>
 @extends('layouts.admin')

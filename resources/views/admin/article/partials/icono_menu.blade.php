@@ -1,7 +1,7 @@
 <?php
 $icono_menu=get_field($article->metadata, 'icono_menu');
 
-$directory=\App\CmsDirectory::select()->where('alias', 'pagina_icono')->first()->path;
+$directory=\App\Models\CmsDirectory::select()->where('alias', 'pagina_icono')->first()->path;
 ?>
 	<div class="form-group">
 	  {!! Form::label('metadata[icono_menu]', 'Ícono Menú', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}

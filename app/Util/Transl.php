@@ -1,8 +1,8 @@
 <?php
 namespace App\Util;
 
-use App\CmsTranslate;
-use App\CmsTranslateLang;
+use App\Models\CmsTranslate;
+use App\Models\CmsTranslateLang;
 
 class Transl {
 	public static $trans = array();

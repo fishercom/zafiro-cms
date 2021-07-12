@@ -6,7 +6,7 @@ if (!function_exists('get_article')) {
      * */
     function get_article($front_view, $site_id=1, $lang_id=1)
     {
-        $page = \App\CmsArticle::whereHas('schemas', function($query) use($front_view){
+        $page = \App\Models\CmsArticle::whereHas('schemas', function($query) use($front_view){
             $query->where('front_view', $front_view);
         })
         ->where('site_id', $site_id)
@@ -22,7 +22,7 @@ if (!function_exists('get_article_root')) {
      * */
     function get_article_root($front_view, $site_id=1, $lang_id=1)
     {
-        $page = \App\CmsArticle::whereHas('schemas', function($query) use($front_view){
+        $page = \App\Models\CmsArticle::whereHas('schemas', function($query) use($front_view){
             $query->where('front_view', $front_view);
         })
         ->whereNull('parent_id')
@@ -40,7 +40,7 @@ if (!function_exists('get_article_list')) {
     function get_article_list($front_view, $site_id=1, $lang_id=1, $parent_id=null)
     {
 
-        $paginas = \App\CmsArticle::whereHas('schemas', function ($query) use($front_view){
+        $paginas = \App\Models\CmsArticle::whereHas('schemas', function ($query) use($front_view){
             $query->where('front_view', $front_view);
         })
         ->where(function($query) use($parent_id){
@@ -60,7 +60,7 @@ if (!function_exists('get_article_slug')) {
      * */
     function get_article_slug($slug, $site_id)
     {
-        $page = \App\CmsArticle::where('slug', $slug)
+        $page = \App\Models\CmsArticle::where('slug', $slug)
                 ->where('site_id', $site_id)
                 ->first();
 
@@ -164,7 +164,7 @@ if (!function_exists('parameter_list')) {
      * */
     function parameter_list($group_alias, $parent_id=null)
     {
-        return App\CmsParameter::whereIn('group_id', App\CmsParameterGroup::where('alias', $group_alias)->pluck('id'))
+        return App\Models\CmsParameter::whereIn('group_id', App\Models\CmsParameterGroup::where('alias', $group_alias)->pluck('id'))
             ->where('parent_id', $parent_id)
             ->where('active', true)
             ->orderBy('position')
@@ -178,8 +178,8 @@ if (!function_exists('parameter_pluck')) {
      * */
     function parameter_pluck($group_alias,  $parent_id=null)
     {
-        return App\CmsParameter::select('name', 'id')
-            ->whereIn('group_id', App\CmsParameterGroup::where('alias', $group_alias)->pluck('id'))
+        return App\Models\CmsParameter::select('name', 'id')
+            ->whereIn('group_id', App\Models\CmsParameterGroup::where('alias', $group_alias)->pluck('id'))
             ->where('parent_id', $parent_id)
             ->where('active', true)
             ->orderBy('position')
@@ -194,7 +194,7 @@ if (!function_exists('parameter_find')) {
     function parameter_find($id)
     {
 
-        return App\CmsParameter::find('id', $id);
+        return App\Models\CmsParameter::find('id', $id);
     }
 }
 
@@ -205,7 +205,7 @@ if (!function_exists('parameter_value')) {
     function parameter_value($value)
     {
 
-        return App\CmsParameter::where('value', $value)->first();
+        return App\Models\CmsParameter::where('value', $value)->first();
     }
 }
 
@@ -216,7 +216,7 @@ if (!function_exists('get_country_pluck')) {
     function get_country_pluck()
     {
 
-        return App\Country::where('active', true)->pluck('name', 'id');
+        return App\Models\Country::where('active', true)->pluck('name', 'id');
     }
 }
 
@@ -227,7 +227,7 @@ if (!function_exists('get_department_pluck')) {
     function get_department_pluck()
     {
 
-        return App\UbgDepartment::pluck('name', 'id');
+        return App\Models\UbgDepartment::pluck('name', 'id');
     }
 }
 if (!function_exists('get_province_pluck')) {
@@ -237,7 +237,7 @@ if (!function_exists('get_province_pluck')) {
     function get_province_pluck($department_id)
     {
 
-        return App\UbgProvince::where('department_id', $department_id)
+        return App\Models\UbgProvince::where('department_id', $department_id)
         ->pluck('name', 'id');
     }
 }
@@ -248,7 +248,7 @@ if (!function_exists('get_district_pluck')) {
     function get_district_pluck($department_id, $province_id)
     {
 
-        return App\UbgDistrict::where('department_id', $department_id)
+        return App\Models\UbgDistrict::where('department_id', $department_id)
         ->where('province_id', $province_id)
         ->pluck('name', 'id');
     }
@@ -283,7 +283,7 @@ if (!function_exists('get_products_top')) {
      * */
     function get_products_top($local_id=null){
 
-        return App\Product::where('active', true)->inRandomOrder()->take(5)->get();
+        return App\Models\Product::where('active', true)->inRandomOrder()->take(5)->get();
     }
 }
 if (!function_exists('get_locales_top')) {
@@ -292,7 +292,7 @@ if (!function_exists('get_locales_top')) {
      * */
     function get_locales_top(){
 
-        return App\Local::where('active', true)->inRandomOrder()->take(5)->get();
+        return App\Models\Local::where('active', true)->inRandomOrder()->take(5)->get();
     }
 }
 if (!function_exists('get_local_top')) {
@@ -301,7 +301,7 @@ if (!function_exists('get_local_top')) {
      * */
     function get_local_top(){
 
-        return App\Local::where('active', true)->inRandomOrder()->first();
+        return App\Models\Local::where('active', true)->inRandomOrder()->first();
     }
 }
 if (!function_exists('upload_base_path')) {

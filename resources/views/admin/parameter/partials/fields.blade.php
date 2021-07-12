@@ -1,6 +1,6 @@
 <?php
 
-use App\CmsParameterGroup;
+use App\Models\CmsParameterGroup;
 
 $group = CmsParameterGroup::find($group_id);
 

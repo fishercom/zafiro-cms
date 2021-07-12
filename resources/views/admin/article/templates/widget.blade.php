@@ -1,7 +1,7 @@
 <?php
 $icono=get_field($article->metadata, 'icono');
 
-$directory=\App\CmsDirectory::select()->where('alias', 'widget_icono')->first()->path;
+$directory=\App\Models\CmsDirectory::select()->where('alias', 'widget_icono')->first()->path;
 ?>
 	<div class="form-group">
 	  {!! Form::label('metadata[icono]', 'Imagen', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}

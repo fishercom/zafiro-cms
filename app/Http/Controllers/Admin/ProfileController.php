@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\ProfileRequest;
 
-use App\Profile;
-use App\AdmPermission;
+use App\Models\Profile;
+use App\Models\AdmPermission;
 
 use View;
 

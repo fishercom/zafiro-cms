@@ -1,6 +1,6 @@
 <?php
 
-use App\CmsLang;
+use App\Models\CmsLang;
 
 $langs = CmsLang::where('active', true)->get();
 

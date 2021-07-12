@@ -1,5 +1,5 @@
 <?php
-$fheads=App\CmsFormField::Select()
+$fheads=App\Models\CmsFormField::Select()
         ->Where('form_id', $form_id)
         ->get();
 ?>
@@ -28,7 +28,7 @@ $fheads=App\CmsFormField::Select()
     <td>{{ $register->comments }}</td>
 @foreach ($fheads as $fh)
 <?php
-$rf=App\CmsRegisterField::Select()
+$rf=App\Models\CmsRegisterField::Select()
         ->Where('register_id', $register->id)
         ->Where('field_id', $fh->id)
         ->first();

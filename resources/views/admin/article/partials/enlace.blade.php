@@ -2,7 +2,7 @@
 $types=array('0'=>'Sin enlace', '1'=>'Enlace Interno', '2'=>'Enlace Extero');
 $targets=array('1'=>'Misma Ventana', '2'=>'Nueva Ventana');
 
-$list=\App\CmsArticle::has('page_schemas')->with('page_schemas')
+$list=\App\Models\CmsArticle::has('page_schemas')->with('page_schemas')
   ->where('active', '1')
   ->select('id', 'parent_id', 'title')
   ->orderBy('schema_id', 'asc')

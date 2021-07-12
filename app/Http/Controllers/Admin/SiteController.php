@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\SiteRequest;
 
-use App\CmsSite;
+use App\Models\CmsSite;
 
 use View;
 

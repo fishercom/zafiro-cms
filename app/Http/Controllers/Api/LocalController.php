@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
 
-use App\Local;
-use App\User;
+use App\Models\Local;
+use App\Models\User;
 
 use DB;
 use View;

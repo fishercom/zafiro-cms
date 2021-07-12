@@ -1,6 +1,6 @@
 <?php
 
-use App\CmsSchemaGroup;
+use App\Models\CmsSchemaGroup;
 
 $sch_groups = [null=>'--seleccione--']+CmsSchemaGroup::select('name', 'id')
 		->where('active', true)->pluck('name', 'id')->toArray();

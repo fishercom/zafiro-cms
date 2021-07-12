@@ -9,13 +9,13 @@ class RegisterLog {
 
     public static function login(){
 
-		$module=\App\AdmModule::where('controller', 'login')->first();
-		$action=\App\AdmAction::where('alias', 'login')->first();
-        $event=\App\AdmEvent::where('module_id', $module->id)->where('action_id', $action->id)->first();
+		$module=\App\Models\AdmModule::where('controller', 'login')->first();
+		$action=\App\Models\AdmAction::where('alias', 'login')->first();
+        $event=\App\Models\AdmEvent::where('module_id', $module->id)->where('action_id', $action->id)->first();
         $comment='El usuario ha ingresado al sistema';
 		$user_id=Auth::user()->id;
 
-        \App\AdmLog::create(['user_id'=>Auth::user()->id, 'event_id'=>$event->id, 'comment'=>$comment]);
+        \App\Models\AdmLog::create(['user_id'=>Auth::user()->id, 'event_id'=>$event->id, 'comment'=>$comment]);
 		Log::info($comment.', user_id='.$user_id);
 
 		return true;
@@ -23,13 +23,13 @@ class RegisterLog {
 
     public static function logout(){
 
-		$module=\App\AdmModule::where('controller', 'login')->first();
-		$action=\App\AdmAction::where('alias', 'logout')->first();
-        $event=\App\AdmEvent::where('module_id', $module->id)->where('action_id', $action->id)->first();
+		$module=\App\Models\AdmModule::where('controller', 'login')->first();
+		$action=\App\Models\AdmAction::where('alias', 'logout')->first();
+        $event=\App\Models\AdmEvent::where('module_id', $module->id)->where('action_id', $action->id)->first();
         $comment='El usuario ha salido del sistema';
 		$user_id=Auth::user()->id;
 
-        \App\AdmLog::create(['user_id'=>$user_id, 'event_id'=>$event->id, 'comment'=>$comment]);
+        \App\Models\AdmLog::create(['user_id'=>$user_id, 'event_id'=>$event->id, 'comment'=>$comment]);
 		Log::info($comment.', user_id='.$user_id);
 
 		return true;
@@ -39,7 +39,7 @@ class RegisterLog {
 
         $controller = explode('/', Route::current()->uri)[1];
         $method     = explode('@', Route::getCurrentRoute()->getActionName())[1];
-		$module=\App\AdmModule::where('controller', $controller)->first();
+		$module=\App\Models\AdmModule::where('controller', $controller)->first();
 
 		if(!$module) return false;
 
@@ -61,14 +61,14 @@ class RegisterLog {
 				break;
 		}
 
-		$action=\App\AdmAction::where('alias', 'administrar')->first();
-        $event=\App\AdmEvent::where('module_id', $module->id)->where('action_id', $action->id)->first();
+		$action=\App\Models\AdmAction::where('alias', 'administrar')->first();
+        $event=\App\Models\AdmEvent::where('module_id', $module->id)->where('action_id', $action->id)->first();
 		$user_id=Auth::user()->id;
 
         if($action->write_log=='1'){
 			if($obj!=NULL) $comment.=', id='.$obj->id;
             //Guardar registro de logs
-            \App\AdmLog::create(['user_id'=>$user_id, 'event_id'=>$event->id, 'comment'=>$comment]);
+            \App\Models\AdmLog::create(['user_id'=>$user_id, 'event_id'=>$event->id, 'comment'=>$comment]);
 			Log::info($comment.', user_id='.$user_id);
         }
 

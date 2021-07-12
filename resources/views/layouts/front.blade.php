@@ -5,7 +5,7 @@ header( 'Cache-Control: no-store, no-cache, must-revalidate' );
 header( 'Cache-Control: post-check=0, pre-check=0', false );
 header( 'Pragma: no-cache' );
 
-$site = App\CmsSite::where('default', true)->first();
+$site = App\Models\CmsSite::where('default', true)->first();
 
 $site_header_js = get_field($site->metadata, 'header_js');
 $site_body_js = get_field($site->metadata, 'body_js');
@@ -13,7 +13,7 @@ $site_footer_js = get_field($site->metadata, 'footer_js');
 
 $ubigeo = isset($_COOKIE['ubigeo'])? $_COOKIE['ubigeo']: env('DEFAULT_UBG');
 
-$conf_analytics = \App\CmsConfig::where('alias', 'analytics')->first()->value;
+$conf_analytics = \App\Models\CmsConfig::where('alias', 'analytics')->first()->value;
 $wrapper ='wrapper '. ($page->front_view=='seccion_home'? 'wrapper_home': 'wrapper_interna');
 ?>
 <!DOCTYPE html>

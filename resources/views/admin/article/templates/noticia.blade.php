@@ -1,5 +1,5 @@
 <?php
-$group=\App\CmsParameterGroup::select()->where('alias', 'tipo_post')->first();
+$group=\App\Models\CmsParameterGroup::select()->where('alias', 'tipo_post')->first();
 $tipo_list = [null => '--seleccione--'] + $group->parameters
 	->where('parent_id', NULL)
 	->pluck('name', 'id')
@@ -8,7 +8,7 @@ $tipo_list = [null => '--seleccione--'] + $group->parameters
 $imagen=get_field($article->metadata, 'imagen');
 $tipo_id=get_field($article->metadata, 'tipo_id');
 
-$directory=\App\CmsDirectory::select()->where('alias', 'noticia_imagen')->first()->path;
+$directory=\App\Models\CmsDirectory::select()->where('alias', 'noticia_imagen')->first()->path;
 ?>
 	<div class="form-group">
 		{!! Form::label('date', 'Fecha', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}

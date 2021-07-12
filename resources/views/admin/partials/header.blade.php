@@ -1,7 +1,7 @@
 <?php
 
-use App\User;
-use App\UserPost;
+use App\Models\User;
+use App\Models\UserPost;
 
 $user=Auth::user();
 $user_photo = $user->photo;

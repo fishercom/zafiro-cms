@@ -62,7 +62,7 @@ function Filter(sender){
     </tr>
     @foreach ($articles_pg as $article)
     <?php
-        if(\App\CmsSchema::select()->where('parent_id', $article->schema_id)->first()!=NULL)
+        if(\App\Models\CmsSchema::select()->where('parent_id', $article->schema_id)->first()!=NULL)
             $title = '<a href="'.url('admin/article').'?parent_id='.$article->id.'&site_id='.$article->site_id.'&schema_id='.$article->schema_id."\">$article->title</a>";
         else
             $title = $article->title;

@@ -9,8 +9,8 @@ use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\SchemaRequest;
 use App\Http\Requests\Admin\SortableRequest;
 
-use App\CmsSchema;
-use \App\CmsSchemaGroup;
+use App\Models\CmsSchema;
+use \App\Models\CmsSchemaGroup;
 
 use View;
 

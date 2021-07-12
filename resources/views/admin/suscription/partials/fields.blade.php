@@ -1,7 +1,7 @@
 <?php
 
 use App\Service;
-use App\CmsLang;
+use App\Models\CmsLang;
 
 $services = [null=>'--seleccione--']+Service::select(DB::Raw("CONCAT(name, ' (US$', amount, ')') as name"), 'id')
 		->pluck('name', 'id')->toArray();

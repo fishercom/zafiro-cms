@@ -1,6 +1,6 @@
 <?php
 
-use App\User;
+use App\Models\User;
 
 $user=Auth::user();
 $user_photo = $user->photo;
@@ -8,15 +8,15 @@ if(empty( $user_photo )) $user_photo = 'avatar.jpg';
 
 $profile=$user->profile;
 
-$menu_list = \App\AdmMenu::select()
+$menu_list = \App\Models\AdmMenu::select()
 	->where('parent_id', null)
 	->where('active', '1')
 	->get();
 
 if($profile->id!=1){
-	$user_module=\App\AdmModule::select(['id', 'menu_id'])
-		->whereIn('id', \App\AdmEvent::select()
-			->whereIn('id', \App\AdmPermission::select()
+	$user_module=\App\Models\AdmModule::select(['id', 'menu_id'])
+		->whereIn('id', \App\Models\AdmEvent::select()
+			->whereIn('id', \App\Models\AdmPermission::select()
 				->where('profile_id', $profile->id)
 				->pluck('event_id')
 			)
@@ -25,11 +25,11 @@ if($profile->id!=1){
 		->where('active', true);
 }
 else{
-	$user_module=\App\AdmModule::select()
+	$user_module=\App\Models\AdmModule::select()
 		->where('active', true);
 }
 
-$current_smenu =\App\AdmMenu::FindOrFail($current_module->menu_id);
+$current_smenu =\App\Models\AdmMenu::FindOrFail($current_module->menu_id);
 ?>
 <!-- sidebar: style can be found in sidebar.less -->
 <section class="sidebar">
@@ -61,7 +61,7 @@ $current_smenu =\App\AdmMenu::FindOrFail($current_module->menu_id);
 		<?php
 			$menu_name=strtoupper($menu->name);
 
-			$smenus=\App\AdmMenu::select()
+			$smenus=\App\Models\AdmMenu::select()
 				->whereIn('id', $user_module->pluck('menu_id'))
 				->where('parent_id', $menu->id)
 				->where('active', true)
@@ -78,7 +78,7 @@ $current_smenu =\App\AdmMenu::FindOrFail($current_module->menu_id);
 			  $smenu_icon=$smenu->icon!=''? $smenu->icon: '';
 			  $smenu_class=$current_smenu==$smenu? 'active': '';
 			  
-			  $modules=\App\AdmModule::select()
+			  $modules=\App\Models\AdmModule::select()
 			  ->whereIn('id', $user_module->pluck('id'))
 			  ->where('menu_id', $smenu_id)
 			  ->where('active', true)

@@ -5,11 +5,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Lang;
 
-use App\User;
-use App\Member;
-use App\Company;
-use App\Product;
-use App\Local;
+use App\Models\User;
+use App\Models\Member;
+use App\Models\Company;
+use App\Models\Product;
+use App\Models\Local;
 
 use Config;
 use Auth;

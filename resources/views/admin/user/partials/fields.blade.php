@@ -1,11 +1,11 @@
 <?php
 
-use \App\CmsDirectory;
+use \App\Models\CmsDirectory;
 
 //$photo= isset($user) ? get_field($user->cdata, 'photo'): null;
 $directory=CmsDirectory::select()->where('alias', 'user_photo')->first()->path;
 
-$profiles=\App\Profile::select()
+$profiles=\App\Models\Profile::select()
 //	->whereNull('default')
 	->where('id', '<>', '1')
 	->where('active', true)

@@ -1,5 +1,5 @@
 <?php
-$smenu =\App\AdmMenu::FindOrFail($current_module->menu_id);
+$smenu =\App\Models\AdmMenu::FindOrFail($current_module->menu_id);
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -10,7 +10,7 @@ $smenu =\App\AdmMenu::FindOrFail($current_module->menu_id);
         <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
     <?php
     if($smenu->parent_id!=null){
-      $pmenu=\App\AdmMenu::FindOrFail($smenu->parent_id);
+      $pmenu=\App\Models\AdmMenu::FindOrFail($smenu->parent_id);
     ?>
         <li class="active">{{ $pmenu->name }}</li>
     <?php

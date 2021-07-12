@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 
-use App\CmsParameter;
+use App\Models\CmsParameter;
 
 
 use DB;

@@ -1,6 +1,6 @@
 <?php
 $layers = 
-\App\CmsArticle::whereHas('schemas', function ($query) {
+\App\Models\CmsArticle::whereHas('schemas', function ($query) {
     $query->where('front_view', 'layer_denuncia');
 })
 ->where('lang_id', $lang->id)

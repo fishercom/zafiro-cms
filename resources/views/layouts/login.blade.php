@@ -1,5 +1,5 @@
 <?php
-$conf_sitename = \App\CmsConfig::where('alias', 'site_name')->first()->value;
+$conf_sitename = \App\Models\CmsConfig::where('alias', 'site_name')->first()->value;
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="es"> <![endif]-->

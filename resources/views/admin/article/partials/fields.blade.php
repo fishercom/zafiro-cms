@@ -6,7 +6,7 @@ $meta_keywr = get_field($article->metadata, 'meta_keywords');
 $meta_robot = get_field($article->metadata, 'meta_robots');
 $meta_image = get_field($article->metadata, 'meta_image');
 
-$metatag_dir = \App\CmsDirectory::select()->where('alias', 'metatag_imagen')->first()->path;
+$metatag_dir = \App\Models\CmsDirectory::select()->where('alias', 'metatag_imagen')->first()->path;
 
 ?>
 <script src="{{ asset('/assets/plugins/ckeditor/ckeditor.js') }}"></script>

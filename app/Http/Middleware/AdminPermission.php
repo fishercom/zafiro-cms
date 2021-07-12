@@ -34,7 +34,7 @@ class AdminPermission
         //Application Permissions Here!
         $uri = explode('/', Route::current()->uri);
         $controller = count($uri)>1? $uri[1]: 'home';
-        $module = \App\AdmModule::where('controller', $controller)->first();
+        $module = \App\Models\AdmModule::where('controller', $controller)->first();
         if(!$module){
             return redirect('admin/home/notfound');
         }
@@ -48,15 +48,15 @@ class AdminPermission
             case 'update':
             case 'sort':
             case 'destroy':
-                $action=\App\AdmAction::where('alias', 'administrar')->first();
+                $action=\App\Models\AdmAction::where('alias', 'administrar')->first();
                 break;
             default:
-                $action=\App\AdmAction::where('alias', 'listar')->first();
+                $action=\App\Models\AdmAction::where('alias', 'listar')->first();
                 break;
         }
 
-        $event=\App\AdmEvent::where('module_id', $module->id)->where('action_id', $action->id)->first();
-        $permission=\App\AdmPermission::where('event_id', $event->id)->where('profile_id', $profile->id)->first();
+        $event=\App\Models\AdmEvent::where('module_id', $module->id)->where('action_id', $action->id)->first();
+        $permission=\App\Models\AdmPermission::where('event_id', $event->id)->where('profile_id', $profile->id)->first();
         if(!$permission && $profile->id!=1){
             //redirect to error page
             return redirect('admin/home/permission');

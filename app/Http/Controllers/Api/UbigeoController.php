@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
 
-use App\UbgDepartment;
-use App\UbgProvince;
-use App\UbgDistrict;
-use App\User;
+use App\Models\UbgDepartment;
+use App\Models\UbgProvince;
+use App\Models\UbgDistrict;
+use App\Models\User;
 
 use DB;
 use View;
@@ -44,7 +44,7 @@ class UbigeoController extends Controller
 
 	public function save_cookie(Request $request){
 
-		$district = \App\UbgDistrict::find($request->district_id);
+		$district = \App\Models\UbgDistrict::find($request->district_id);
 		if($district){
 
 		    setcookie("ubigeo", $district->id, time()+ (86400*30),'/');

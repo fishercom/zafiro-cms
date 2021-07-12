@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 
-use App\AdmLog;
+use App\Models\AdmLog;
 
 use Maatwebsite\Excel\Facades\Excel;
 use View;

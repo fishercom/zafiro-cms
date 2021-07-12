@@ -26,7 +26,7 @@ class HomeController extends AdminController {
     public function __construct()
     {
 
-        View::share('current_module', \App\AdmModule::select()->where('controller', 'home')->first());
+        View::share('current_module', \App\Models\AdmModule::select()->where('controller', 'home')->first());
     }
 
 	/**
@@ -38,12 +38,12 @@ class HomeController extends AdminController {
 	{
         $user=Auth::user();
 		$profile=$user->profile;
-		$menu_list = \App\AdmMenu::select()->where('parent_id', null)->where('active', '1')->get();
+		$menu_list = \App\Models\AdmMenu::select()->where('parent_id', null)->where('active', '1')->get();
 
 		if($profile->id!=1){
-		    $user_module=\App\AdmModule::select(['id', 'menu_id'])
-		        ->whereIn('id', \App\AdmEvent::select()
-		            ->whereIn('id', \App\AdmPermission::select()
+		    $user_module=\App\Models\AdmModule::select(['id', 'menu_id'])
+		        ->whereIn('id', \App\Models\AdmEvent::select()
+		            ->whereIn('id', \App\Models\AdmPermission::select()
 		                ->where('profile_id', $profile->id)
 		                ->pluck('event_id')
 		            )
@@ -52,7 +52,7 @@ class HomeController extends AdminController {
 		        ->where('active', '1');
 		}
 		else{
-		    $user_module=\App\AdmModule::select()
+		    $user_module=\App\Models\AdmModule::select()
 		        ->where('active', '1');
 		}
 

@@ -9,10 +9,10 @@ use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\ArticleRequest;
 use App\Http\Requests\Admin\SortableRequest;
 
-use App\CmsLang;
-use App\CmsSite;
-use App\CmsSchema;
-use App\CmsArticle;
+use App\Models\CmsLang;
+use App\Models\CmsSite;
+use App\Models\CmsSchema;
+use App\Models\CmsArticle;
 
 use View;
 

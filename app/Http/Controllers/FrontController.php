@@ -12,14 +12,15 @@ use Illuminate\Support\Facades\Lang;
 use App\Util\SEO;
 use App\Util\Transl;
 
-use App\CmsArticle;
-use App\CmsSchema;
-use App\CmsLang;
-use App\User;
-use App\Member;
-use App\Company;
-use App\Product;
-use App\Local;
+use App\Models\CmsArticle;
+use App\Models\CmsSchema;
+use App\Models\CmsLang;
+use App\Models\User;
+use App\Models\Member;
+use App\Models\Company;
+use App\Models\Product;
+use App\Models\Local;
+use App\Models\CmsSite;
 
 use Config;
 use Auth;
@@ -33,7 +34,7 @@ class FrontController extends Controller {
 
 	public function __construct()
 	{
-		$this->site = \App\CmsSite::where('default', true)->first();
+		$this->site = CmsSite::where('default', true)->first();
 
 		View::share('site', $this->site);
 	}
@@ -143,7 +144,7 @@ class FrontController extends Controller {
 
 	public function product($product_id, $slug, $front_view=null, Request $request)
 	{
-		$product = \App\Product::find($product_id);
+		$product = \App\Models\Product::find($product_id);
 		if(!$product) return redirect('/#404');
 
 		$sections = ['contact_form', 'contact_resp'];

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\UserRequest;
 
-use App\User;
+use App\Models\User;
 
 use View;
 

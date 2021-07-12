@@ -1,5 +1,5 @@
 <?php
-$parameter=\App\CmsParameter::find($register->contact_id);
+$parameter=\App\Models\CmsParameter::find($register->contact_id);
 ?>
 <figure>
 	<img src="{{ url('/images/logo_sslp.png') }}" />

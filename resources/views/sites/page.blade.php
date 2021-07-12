@@ -18,7 +18,7 @@ $schema=$page->schema;
 $front_view = 'sites.templates.'.$schema->front_view;
 
 $seccion_home = 
-\App\CmsArticle::whereHas('schemas', function ($query) {
+\App\Models\CmsArticle::whereHas('schemas', function ($query) {
 	$query->where('front_view', 'seccion_home');
 })
 ->where('lang_id', $lang_id)
