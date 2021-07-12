@@ -4,8 +4,8 @@ $imagen1 	=get_field($article->metadata, 'imagen1');
 $icono 		=get_field($article->metadata, 'icono');
 $imagen2 	=get_field($article->metadata, 'imagen2');
 
-$dir_imagen=\App\CmsDirectory::select()->where('alias', 'pagina_imagen')->first()->path;
-$dir_icono=\App\CmsDirectory::select()->where('alias', 'pagina_icono')->first()->path;
+$dir_imagen=\App\Models\CmsDirectory::select()->where('alias', 'pagina_imagen')->first()->path;
+$dir_icono=\App\Models\CmsDirectory::select()->where('alias', 'pagina_icono')->first()->path;
 
 ?>
 	<div class="form-group">

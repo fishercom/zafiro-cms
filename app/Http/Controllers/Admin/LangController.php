@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\LangRequest;
 
-use App\CmsLang;
+use App\Models\CmsLang;
 
 use View;
 

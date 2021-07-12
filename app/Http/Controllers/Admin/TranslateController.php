@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\TranslateRequest;
 
-use App\CmsLang;
-use App\CmsTranslate;
+use App\Models\CmsLang;
+use App\Models\CmsTranslate;
 
 use View;
 
@@ -22,7 +22,7 @@ class TranslateController extends AdminController {
     public function __construct()
     {
 		$lang_id = Request::input('lang_id');
-		$this->lang = !empty($lang_id)? \App\CmsLang::find($lang_id): \App\CmsLang::select()->where('active', '1')->first();
+		$this->lang = !empty($lang_id)? \App\Models\CmsLang::find($lang_id): \App\Models\CmsLang::select()->where('active', '1')->first();
 
 		$this->module_params = '?lang_id='.$this->lang->id;
 

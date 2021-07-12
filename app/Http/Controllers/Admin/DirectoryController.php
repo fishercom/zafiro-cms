@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\DirectoryRequest;
 
-use App\CmsDirectory;
+use App\Models\CmsDirectory;
 
 use View;
 
@@ -39,7 +39,7 @@ class DirectoryController extends AdminController {
 	 */
 	public function create()
 	{
-		$ftypes = \App\CmsFileType::select()->get()->pluck('name', 'id');
+		$ftypes = \App\Models\CmsFileType::select()->get()->pluck('name', 'id');
 		View::share('ftypes', $ftypes);
 
         return view('admin.directory.create');
@@ -79,7 +79,7 @@ class DirectoryController extends AdminController {
 	public function edit($id)
 	{
 		$directory = CmsDirectory::FindOrFail($id);
-		$ftypes = \App\CmsFileType::select()->get()->pluck('name', 'id');
+		$ftypes = \App\Models\CmsFileType::select()->get()->pluck('name', 'id');
 		View::share('ftypes', $ftypes);
 
         return view('admin.directory.edit', compact('directory'));

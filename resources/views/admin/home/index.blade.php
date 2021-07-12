@@ -21,7 +21,7 @@
 	$menu_name=$menu->name;
 	$menu_icon=$menu->icon!=''? $menu->icon: 'fa-circle-o';
 
-    $smenus=\App\AdmMenu::select()
+    $smenus=\App\Models\AdmMenu::select()
         ->whereIn('id', $user_module->pluck('menu_id'))
         ->where('parent_id', $menu_id)
         ->where('active', true)
@@ -39,7 +39,7 @@
 			  $smenu_name =$smenu->name;
 			  $smenu_icon=$smenu->icon!=''? $smenu->icon: '';
 
-              $modules=\App\AdmModule::select()
+              $modules=\App\Models\AdmModule::select()
                 ->whereIn('id', $user_module->pluck('id'))
                 ->where('menu_id', $smenu_id)
                 ->where('active', true)

@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\LocalRequest;
 
-use App\User;
-use App\Member;
-use App\Local;
+use App\Models\User;
+use App\Models\Member;
+use App\Models\Local;
 
-use App\Inventory;
-use App\Offer;
+use App\Models\Inventory;
+use App\Models\Offer;
 
 use App\Util\ImageHelper;
 use Carbon\Carbon;

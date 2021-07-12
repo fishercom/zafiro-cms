@@ -1,7 +1,7 @@
 <?php
 $background=get_field($article->metadata, 'background');
 
-$directory=\App\CmsDirectory::select()->where('alias', 'animacion_home')->first()->path;
+$directory=\App\Models\CmsDirectory::select()->where('alias', 'animacion_home')->first()->path;
 ?>
 <div class="form-group">
 	  {!! Form::label('resumen', 'Contenido', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}

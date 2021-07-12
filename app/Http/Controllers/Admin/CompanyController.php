@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\CompanyRequest;
 
-use App\User;
-use App\Member;
-use App\Company;
+use App\Models\User;
+use App\Models\Member;
+use App\Models\Company;
 
 use App\Util\ImageHelper;
 use Carbon\Carbon;
@@ -185,8 +185,8 @@ class CompanyController extends AdminController {
 
     private function notify($user, Request $request){
         $from=array();
-        $from['name'] = \App\CmsConfig::where('alias', 'site_name')->first()->value;
-        $from['email'] = \App\CmsConfig::where('alias', 'postmaster')->first()->value;
+        $from['name'] = \App\Models\CmsConfig::where('alias', 'site_name')->first()->value;
+        $from['email'] = \App\Models\CmsConfig::where('alias', 'postmaster')->first()->value;
         $passw = $request->input('password');
 
         Mail::send('emails.user', ['user' => $user, 'passw'=>$passw],

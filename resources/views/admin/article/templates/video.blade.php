@@ -2,7 +2,7 @@
 $imagen=get_field($article->metadata, 'imagen');
 $video=get_field($article->metadata, 'video');
 
-$directory=\App\CmsDirectory::select()->where('alias', 'galeria_video')->first()->path;
+$directory=\App\Models\CmsDirectory::select()->where('alias', 'galeria_video')->first()->path;
 ?>
 	<div class="form-group">
 	  {!! Form::label('metadata[imagen]', 'Imagen', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}

@@ -15,7 +15,7 @@ function show_modules($menu, $profile_id){
 	}
 }
 
-$menus=\App\AdmMenu::select()
+$menus=\App\Models\AdmMenu::select()
 	->whereNull('parent_id')
 	->where('active', '1')
 	->orderBy('position')

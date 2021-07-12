@@ -1,6 +1,6 @@
 <?php
 $imagen=get_field($article->metadata, 'imagen');
-$directory=\App\CmsDirectory::select()->where('alias', 'evento_imagen')->first()->path;
+$directory=\App\Models\CmsDirectory::select()->where('alias', 'evento_imagen')->first()->path;
 ?>
 	<div class="form-group">
 		{!! Form::label('date', 'Fecha', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}

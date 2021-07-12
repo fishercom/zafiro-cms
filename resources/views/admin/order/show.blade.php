@@ -11,7 +11,7 @@ $member_photo = get_userfiles(get_field($member->metadata, 'photo'));
 
 $status_list = Config::get('constants.order_status');
 $detail = $order->detail;
-$payment = $order->payment? $order->payment: new App\OrderPayment;
+$payment = $order->payment? $order->payment: new App\Models\OrderPayment;
 
 ?>
 @extends('layouts.admin')

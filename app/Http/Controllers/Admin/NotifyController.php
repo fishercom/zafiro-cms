@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\NotifyRequest;
 
-use App\CmsForm;
-use App\CmsNotify;
+use App\Models\CmsForm;
+use App\Models\CmsNotify;
 
 use View;
 
@@ -22,7 +22,7 @@ class NotifyController extends AdminController {
     public function __construct()
     {
 		$form_id = Request::input('form_id');
-		$this->form = !empty($form_id)? \App\CmsForm::find($form_id): \App\CmsForm::select()->where('active', '1')->first();
+		$this->form = !empty($form_id)? \App\Models\CmsForm::find($form_id): \App\Models\CmsForm::select()->where('active', '1')->first();
 
 		$this->module_params = '?form_id='.$this->form->id;
 
@@ -64,8 +64,8 @@ class NotifyController extends AdminController {
 		$notify->active = '1';
 
 		$form_id=$this->form->id;
-		$users=\App\User::select()
-			->whereNotIn('id', \App\CmsNotify::select('user_id')
+		$users=\App\Models\User::select()
+			->whereNotIn('id', \App\Models\CmsNotify::select('user_id')
 					->where('form_id', $this->form->id)
 					->where('active', '1')->get()->toArray()
 				)
@@ -112,7 +112,7 @@ class NotifyController extends AdminController {
 	{
 		$notify = CmsNotify::FindOrFail($id);
 
-		$users=\App\User::whereNotIn('id', \App\CmsNotify::select('user_id')
+		$users=\App\Models\User::whereNotIn('id', \App\Models\CmsNotify::select('user_id')
 					->where('active', '1')
 					->where('user_id', '<>', $notify->user_id)
 					->get()->toArray()

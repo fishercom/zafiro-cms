@@ -46,7 +46,7 @@ function DetailSlide($slide, $user){
     return $title;
 }
 
-$page = \App\CmsArticle::whereHas('schemas', function ($query) {
+$page = \App\Models\CmsArticle::whereHas('schemas', function ($query) {
     $query->where('front_view', 'segmento');
 })
 ->where(\DB::raw("ExtractValue(param, '/root/item[@key = \"worker\"]/@value')"), $worker)
@@ -56,7 +56,7 @@ $page = \App\CmsArticle::whereHas('schemas', function ($query) {
 
 $bloques = $page->children;
 
-$slides = \App\CmsArticle::whereHas('schemas', function ($query) {
+$slides = \App\Models\CmsArticle::whereHas('schemas', function ($query) {
     $query->where('front_view', 'slide_manuales');
     $query->orWhere('front_view', 'slide_gestion');
     $query->orWhere('front_view', 'slide_documentos');
@@ -87,7 +87,7 @@ $photo=!empty($user->photo)? '<a href="'.asset('/userfiles/user/avatar/'.$user->
     <td>{{ $user->email }}</td>
 @foreach ($slides as $slide)
 <?php
-$log = \App\CmsArticleLog::where('article_id', $slide->id)->where('user_id', $user->id)->first();
+$log = \App\Models\CmsArticleLog::where('article_id', $slide->id)->where('user_id', $user->id)->first();
 $check = $log? DetailSlide($slide, $user): NULL;
 ?>
     <td>{!! $check !!}</td>

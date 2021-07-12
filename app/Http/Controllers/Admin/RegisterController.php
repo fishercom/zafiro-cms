@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\RegisterRequest;
 
-use App\CmsRegister;
-use App\CmsRegisterField;
-use App\CmsForm;
+use App\Models\CmsRegister;
+use App\Models\CmsRegisterField;
+use App\Models\CmsForm;
 
 use Maatwebsite\Excel\Facades\Excel;
 use View;
@@ -25,7 +25,7 @@ class RegisterController extends AdminController {
     {
 		$form_id = Request::input('form_id');
 		$page = Request::input('page');
-		$this->form = !empty($form_id)? \App\CmsForm::find($form_id): \App\CmsForm::select()->where('active', '1')->first();
+		$this->form = !empty($form_id)? \App\Models\CmsForm::find($form_id): \App\Models\CmsForm::select()->where('active', '1')->first();
 		$this->module_params = '?form_id='.$this->form->id;
 
 		View::share('form_id', $this->form->id);

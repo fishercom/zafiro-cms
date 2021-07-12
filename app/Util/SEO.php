@@ -25,7 +25,7 @@ class SEO {
     public static function url_redirect_id($id){
         if(empty($id)) return self::url_home();
 
-        $article =\App\CmsArticle::select()->find($id);
+        $article =\App\Models\CmsArticle::select()->find($id);
         if($article){
             return self::url_slug($article);
         }

@@ -1,6 +1,6 @@
 <?php
 //use Jenssegers\Date\Date;
-use App\CmsRegister;
+use App\Models\CmsRegister;
 
 $created=Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i:s'); //Date::parse($user->created_at)->format('d/m/Y H:i:s');
 $updated=Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i:s'); //Date::parse($user->updated_at)->format('d/m/Y H:i:s');

@@ -1,5 +1,5 @@
 <?php
-use \App\CmsLang;
+use \App\Models\CmsLang;
 use Illuminate\Support\Facades\Cookie;
 
 $menu = get_article('seccion_content');

@@ -1,22 +1,22 @@
 <?php
-use \App\CmsLang;
+use \App\Models\CmsLang;
 use \App\Util\SEO;
 
-$login = \App\CmsArticle::whereHas('schemas', function ($query) {
+$login = \App\Models\CmsArticle::whereHas('schemas', function ($query) {
     $query->where('front_view', 'login');
 })
 ->where('site_id', $site->id)
 ->whereNull('parent_id')
 ->first();
 
-$registro = \App\CmsArticle::whereHas('schemas', function ($query) {
+$registro = \App\Models\CmsArticle::whereHas('schemas', function ($query) {
     $query->where('front_view', 'registro');
 })
 ->where('site_id', $site->id)
 ->whereNull('parent_id')
 ->first();
 
-$langs = \App\CmsLang::where('active', true)->get();
+$langs = \App\Models\CmsLang::where('active', true)->get();
 
 ?>
 <div class="container">

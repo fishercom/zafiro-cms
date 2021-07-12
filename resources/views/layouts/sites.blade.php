@@ -1,6 +1,6 @@
 <?php
 
-$conf_analytics = \App\CmsConfig::where('alias', 'analytics')->first()->value;
+$conf_analytics = \App\Models\CmsConfig::where('alias', 'analytics')->first()->value;
 
 ?>
 <!DOCTYPE html>

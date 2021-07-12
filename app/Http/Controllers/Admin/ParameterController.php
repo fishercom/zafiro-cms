@@ -9,10 +9,10 @@ use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\ParameterRequest;
 use App\Http\Requests\Admin\SortableRequest;
 
-use App\CmsLang;
-use App\CmsParameter;
-use App\CmsParameterLang;
-use App\CmsParameterGroup;
+use App\Models\CmsLang;
+use App\Models\CmsParameter;
+use App\Models\CmsParameterLang;
+use App\Models\CmsParameterGroup;
 
 use View;
 use DB;

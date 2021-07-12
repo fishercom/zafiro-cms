@@ -8,7 +8,7 @@ $metadata_cover = !empty($metadata_cover)? get_userfiles($metadata_cover): null;
 
 $metadata_zip = get_field($metadata, 'zip');
 
-$company_list = \App\Company::select()->orderBy('name')->pluck('name', 'id');
+$company_list = \App\Models\Company::select()->orderBy('name')->pluck('name', 'id');
 $department_list = get_department_pluck();
 $province_list = get_province_pluck($local->department_id);
 $district_list = get_district_pluck($local->department_id, $local->province_id);
@@ -16,7 +16,7 @@ $discount_list = ['0'=>'', '5'=>'5%', '10'=>'10%', '15'=>'15%', '20'=>'20%', '25
 
 $status_list = Config::get('constants.local_status');
 
-$product_list = App\Product::where('active', true)->pluck('name', 'id');
+$product_list = App\Models\Product::where('active', true)->pluck('name', 'id');
 
 $products = $local->inventories;
 $offers = $local->offers;

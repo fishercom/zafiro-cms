@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\ProductRequest;
 
-use App\Product;
+use App\Models\Product;
 use App\Util\ImageHelper;
 use Carbon\Carbon;
 

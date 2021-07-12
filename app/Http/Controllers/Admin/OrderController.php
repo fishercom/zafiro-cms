@@ -10,11 +10,11 @@ use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\OrderRequest;
 use Maatwebsite\Excel\Facades\Excel;
 
-use App\Order;
-use App\User;
-use App\Member;
-use App\Company;
-use App\CmsSite;
+use App\Models\Order;
+use App\Models\User;
+use App\Models\Member;
+use App\Models\Company;
+use App\Models\CmsSite;
 use App\Util\BladeExport;
 
 use View;
@@ -154,7 +154,7 @@ class OrderController extends AdminController
 
     public function update_easap($id)
     {
-        $order = App\Order::find($id);
+        $order = App\Models\Order::find($id);
         $results = App\Util\WSEASAP::post_order($order);
 
         return redirect('admin/order/'.$this->module_params)->with('results', $results);

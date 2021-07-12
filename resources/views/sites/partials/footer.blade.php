@@ -1,7 +1,7 @@
 <?php
 use \App\Util\SEO;
 
-$footer = \App\CmsArticle::whereHas('schemas', function ($query) {
+$footer = \App\Models\CmsArticle::whereHas('schemas', function ($query) {
     $query->where('front_view', 'seccion_footer');
 })
 ->whereNull('parent_id')

@@ -12,8 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-    	'/logout',
-    	'/payment_response',
-    	'*.alignetsac.com',
+        //
     ];
 }

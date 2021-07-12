@@ -1,6 +1,6 @@
 <?php
 
-use \App\CmsDirectory;
+use \App\Models\CmsDirectory;
 
 $directory = CmsDirectory::select()->where('alias', 'dashboard_icono')->first()->path;
 

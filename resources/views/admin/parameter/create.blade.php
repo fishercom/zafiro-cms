@@ -2,8 +2,8 @@
 $parent_name=null;
 
 if($parent_id!=null){
-    //$parent = App\CmsParameterLang::find(['parameter_id'=>$parent_id, 'lang_id'=>$lang_id]);
-    $parent = App\CmsParameter::find($parent_id);
+    //$parent = App\Models\CmsParameterLang::find(['parameter_id'=>$parent_id, 'lang_id'=>$lang_id]);
+    $parent = App\Models\CmsParameter::find($parent_id);
     $parent_name='<i>&raquo; '.$parent->alias.'</i>';
 }
 ?>

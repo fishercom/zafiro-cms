@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Redirector;
 use App\Http\Requests\Admin\ConfigRequest;
 
-use App\CmsConfig;
+use App\Models\CmsConfig;
 
 use View;
 
