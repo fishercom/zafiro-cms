@@ -13,7 +13,7 @@ ob_start('mb_output_handler');
 date_default_timezone_set('America/Lima');
 setlocale(LC_CTYPE, 'es_PE'); //correct transliteration
 
-$URL_ROOT = '/';
+$URL_ROOT = '/zafiro-cms/';
 /*
 |--------------------------------------------------------------------------
 | Optional security
