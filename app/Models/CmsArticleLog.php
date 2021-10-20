@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ArticleLog extends Model
+class CmsArticleLog extends Model
 {
     //
 }
