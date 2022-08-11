@@ -50,7 +50,7 @@ class FrontController extends Controller {
 
 		//Page not found
 		if(!$page){
-			return view('front.maintenance');
+			return view('front.welcome');
 		}
 
 		$page->front_view = $page->schema->front_view;

@@ -37,8 +37,6 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function(){
 		Route::resource('parameter', 'ParameterController');
 
 		Route::resource('member', 'MemberController');
-		Route::resource('company', 'CompanyController');
-		Route::resource('local', 'LocalController');
 		Route::resource('product', 'ProductController');
 		Route::resource('order', 'OrderController');
 		Route::resource('report', 'ReportController');
