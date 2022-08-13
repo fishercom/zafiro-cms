@@ -39,7 +39,6 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function(){
 		Route::resource('member', 'MemberController');
 		Route::resource('product', 'ProductController');
 		Route::resource('order', 'OrderController');
-		Route::resource('report', 'ReportController');
 
 		Route::get('/',['uses' => 'HomeController@index']);
 		Route::get('home/notfound',['uses' => 'HomeController@notfound']);
