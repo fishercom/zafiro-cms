@@ -32,7 +32,7 @@ class CreateCmsArticlesTable extends Migration {
 			$table->integer('ref_id')->unsigned()->nullable();
 			$table->string('ref_url')->nullable();
 			$table->string('ref_target', 15)->nullable();
-			$table->text('metadata')->nullable();
+			$table->json('metadata')->nullable();
 			$table->boolean('in_home')->nullable();
 			$table->integer('position')->unsigned()->nullable();
 			$table->string('slug', 500);

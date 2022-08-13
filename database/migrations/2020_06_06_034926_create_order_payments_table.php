@@ -25,7 +25,7 @@ class CreateOrderPaymentsTable extends Migration
             $table->string('errorCode')->nullable();
             $table->string('errorMessage')->nullable();
             $table->string('httpSessionId')->nullable();
-            $table->text('metadata')->nullable();
+            $table->json('metadata')->nullable();
             $table->timestamps();
 
             $table->foreign('order_id')

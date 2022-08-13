@@ -8,6 +8,9 @@ class Order extends Model
 {
 	protected $table = 'orders';
 	protected $fillable = ['member_id', 'total', 'money', 'token_payment', 'session_id', 'verification', 'metadata', 'comments', 'status'];
+    protected $casts = [
+        'metadata' => 'array',
+    ];
 
     public function member()
     {
@@ -26,16 +29,6 @@ class Order extends Model
     public function payment()
     {
         return $this->hasOne('App\Models\OrderPayment', 'order_id', 'id');
-    }
-
-    public function setMetadataAttribute($value)
-    {
-        $this->attributes['metadata'] = json_encode($value);
-    }
-
-    public function getMetadataAttribute($value)
-    {
-        return json_decode($value, true);
     }
 
 }

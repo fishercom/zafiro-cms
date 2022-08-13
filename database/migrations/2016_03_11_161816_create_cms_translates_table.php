@@ -18,7 +18,7 @@ class CreateCmsTranslatesTable extends Migration {
 			$table->increments('id');
 			$table->string('alias');
 			$table->tinyInteger('input_type')->unsigned();
-            $table->text('metadata')->nullable();
+            $table->json('metadata')->nullable();
 			$table->timestamps();
 
 		});	}

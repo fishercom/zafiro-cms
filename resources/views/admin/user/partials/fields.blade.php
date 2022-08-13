@@ -2,7 +2,7 @@
 
 use \App\Models\CmsDirectory;
 
-//$photo= isset($user) ? get_field($user->cdata, 'photo'): null;
+$photo= isset($user) ? get_field($user->metadata, 'photo'): null;
 $directory=CmsDirectory::select()->where('alias', 'user_photo')->first()->path;
 
 $profiles=\App\Models\Profile::select()
@@ -44,10 +44,10 @@ $profiles=\App\Models\Profile::select()
 @endif
 
 	<div class="form-group">
-	  {!! Form::label('photo', 'Foto', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
+	  {!! Form::label('metadata[photo]', 'Foto', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
 	  <div class="col-sm-9 col-lg-11">
 	    <div class="input-group">
-	      {!! Form::text('photo', null, ['class'=>'form-control fmanager', 'id'=>'photo', 'rel'=>$directory ]) !!}
+	      {!! Form::text('metadata[photo]', null, ['class'=>'form-control fmanager', 'id'=>'photo', 'rel'=>$directory ]) !!}
 	    </div>
 	  </div>
 	</div>

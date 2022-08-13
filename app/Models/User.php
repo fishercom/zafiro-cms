@@ -17,7 +17,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'name', 'lastname', 'profile_id', 'photo', 'is_member', 'userdata', 'active',
+        'username', 'email', 'password', 'name', 'lastname', 'profile_id', 'is_member', 'metadata', 'active',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'metadata' => 'array',
+        'email_verified_at' => 'datetime',
     ];
 
     /**
@@ -29,25 +39,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
     public function member()
     {
         return $this->hasOne('App\Models\Member', 'user_id', 'id');
     }
 
-    public function company()
-    {
-        return $this->hasOne('App\Models\Company', 'user_id', 'id');
-    }
- 
     public function profile()
     {
         return $this->hasOne('App\Models\Profile', 'id', 'profile_id');

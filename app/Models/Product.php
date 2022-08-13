@@ -9,6 +9,9 @@ class Product extends Model
 
 	protected $table = 'products';
 	protected $fillable = ['category_id', 'subcategory_id', 'brand_id', 'unity_id', 'name', 'resumen', 'description', 'price', 'metadata', 'active'];
+    protected $casts = [
+        'metadata' => 'array',
+    ];
 
     public function category()
     {
@@ -28,16 +31,6 @@ class Product extends Model
     public function unity()
     {
         return $this->hasOne('App\Models\CmsParameter', 'id', 'unity_id');
-    }
-    
-    public function setMetadataAttribute($value)
-    {
-        $this->attributes['metadata'] = json_encode($value);
-    }
-
-    public function getMetadataAttribute($value)
-    {
-        return json_decode($value, true);
     }
 
 }

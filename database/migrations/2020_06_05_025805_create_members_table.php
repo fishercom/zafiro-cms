@@ -28,7 +28,7 @@ class CreateMembersTable extends Migration
             $table->string('reference')->nullable();
             $table->enum('member_type', ['COMPANY', 'CLIENT'])->nullable();
             $table->boolean('acceptance')->nullable();
-            $table->text('metadata')->nullable();
+            $table->json('metadata')->nullable();
             $table->enum('status', ['PENDING', 'ACTIVE', 'BLOCKED', 'TRASH']);
             $table->timestamps();
 

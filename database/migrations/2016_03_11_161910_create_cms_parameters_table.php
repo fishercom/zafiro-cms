@@ -19,7 +19,7 @@ class CreateCmsParametersTable extends Migration
             $table->integer('parent_id')->unsigned()->nullable();
             $table->string('name');
             $table->string('value')->nullable();
-            $table->text('metadata')->nullable();
+            $table->json('metadata')->nullable();
             $table->integer('position')->unsigned();
             $table->boolean('active')->nullable();
             $table->timestamps();

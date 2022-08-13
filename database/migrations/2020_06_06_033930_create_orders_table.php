@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('token_payment', 255)->nullable();
             $table->string('session_id')->nullable();
             $table->string('verification')->nullable();
-            $table->text('metadata')->nullable();
+            $table->json('metadata')->nullable();
             $table->string('comments', 1024);
             $table->enum('status', ['PENDING', 'PAID', 'REFUSED']);
             $table->timestamps();

@@ -44,8 +44,8 @@ class ParameterController extends Controller {
         $info = [
                     'id'=>$item->id,
                     'name'=>$item->name,
-                    'color'=>get_field($item->param, 'color'),
-                    'definicion'=>get_field($item->param, 'definicion'),
+                    'color'=>get_field($item->metadata, 'color'),
+                    'definicion'=>get_field($item->metadata, 'definicion'),
                 ];
 
         return response()->json($info);

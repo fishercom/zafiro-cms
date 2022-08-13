@@ -22,9 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('name');
             $table->string('lastname')->nullable();
-            $table->string('photo')->nullable();
             $table->boolean('is_member')->nullable();
-            $table->text('userdata')->nullable(); //photos, documents, fields
+            $table->json('metadata')->nullable(); //photos, documents, fields
             $table->boolean('active')->nullable();
             $table->boolean('default')->nullable();
             $table->rememberToken();

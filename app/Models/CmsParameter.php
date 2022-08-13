@@ -12,16 +12,9 @@ class CmsParameter extends Model
 	protected $fillable = ['group_id', 'parent_id', 'name', 'value', 'metadata', 'active'];
     protected static $sortableField = 'position';
     protected static $sortableGroupField = 'group_id';
-
-    public function setMetadataAttribute($value)
-    {
-        $this->attributes['metadata'] = json_encode($value);
-    }
-
-    public function getMetadataAttribute($value)
-    {
-        return json_decode($value, true);
-    }
+    protected $casts = [
+        'metadata' => 'array',
+    ];
 
     public function from_group($alias)
     {

@@ -21,10 +21,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('resumen', 512);
             $table->text('description');
-
             $table->decimal('price', 8, 2)->nullable();
-
-            $table->text('metadata')->nullable(); //photos, colors, video, url
+            $table->json('metadata')->nullable(); //photos, colors, video, url
             $table->boolean('active');
             $table->timestamps();
 

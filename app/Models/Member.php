@@ -8,6 +8,9 @@ class Member extends Model
 {
 	protected $table = 'members';
 	protected $fillable = ['user_id', 'document_type', 'document', 'phone', 'department_id', 'province_id', 'district_id', 'postal', 'location', 'address', 'reference', 'metadata', 'member_type', 'acceptance', 'status'];
+    protected $casts = [
+        'metadata' => 'array',
+    ];
 
     public function user()
     {
@@ -32,16 +35,6 @@ class Member extends Model
     public function district()
     {
         return $this->hasOne('App\Models\UbgDistrict', 'id', 'district_id');
-    }
-
-    public function setMetadataAttribute($value)
-    {
-        $this->attributes['metadata'] = json_encode($value);
-    }
-
-    public function getMetadataAttribute($value)
-    {
-        return json_decode($value, true);
     }
 
 }

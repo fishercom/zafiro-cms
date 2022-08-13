@@ -18,6 +18,9 @@ class CmsArticle extends Model {
     protected $fillable = ['schema_id', 'parent_id', 'lang_id', 'site_id', 'title', 'subtitle', 'subtitle2', 'resumen', 'description', 'description2', 'description3', 'date', 'ref_type', 'ref_id', 'ref_url', 'ref_target', 'metadata', 'in_home', 'slug', 'active'];
     protected static $sortableField = 'position';
     protected static $sortableGroupField = 'parent_id';
+    protected $casts = [
+        'metadata' => 'array',
+    ];
 
     public $front_view = null;
     public $route_view = null;
@@ -34,16 +37,6 @@ class CmsArticle extends Model {
     public function getParentSlugAttribute() {
         $pslug=$this->parent!=NULL? $this->parent->slug.'_': '';
         return $pslug . $this->title;
-    }
-
-    public function setMetadataAttribute($value)
-    {
-        $this->attributes['metadata'] = json_encode($value);
-    }
-
-    public function getMetadataAttribute($value)
-    {
-        return json_decode($value, true);
     }
 
     public function parent()
