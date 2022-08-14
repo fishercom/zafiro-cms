@@ -26,12 +26,6 @@ class CmsParameter extends Model
             ->orderBy('position');
     }
 
-    public function lang($lang_id=1)
-    {
-        return $this->hasOne('App\Models\CmsParameterLang', 'parameter_id')
-                    ->where('lang_id', $lang_id);
-    }
-
     public function parent()
     {
         return $this->belongsTo('App\Models\CmsParameterAlias', 'parent_id');

@@ -58,9 +58,6 @@ class DatabaseSeeder extends Seeder {
 
 		// Seeding cms_parameters_group
 		$pgroup_asunto= \App\Models\CmsParameterGroup::create(['name' => 'Asunto de Contacto', 'alias'=>'asunto', 'active'=>true]);
-		$pgroup_category= \App\Models\CmsParameterGroup::create(['name' => 'Categorías', 'alias'=>'category', 'children'=>true, 'active'=>true]);
-		$pgroup_dashboard= \App\Models\CmsParameterGroup::create(['name' => 'Dashboard', 'alias'=>'dashboard', 'active'=>true]);
-		$pgroup_dashboard= \App\Models\CmsParameterGroup::create(['name' => 'Marcas', 'alias'=>'brand', 'active'=>true]);
 
 		// Seeding cms_filetypes
 		$ftype_image = \App\Models\CmsFileType::create(['name' => 'Imagen', 'extensions' => 'jpg,jpeg,gif,png', 'active'=>true]);
@@ -130,7 +127,6 @@ class DatabaseSeeder extends Seeder {
 		$module_members = \App\Models\AdmModule::create(['menu_id' => $menu_modules->id, 'name' => 'Miembros', 'title' => 'miembro', 'controller' => 'member', 'icon'=>'fa-users', 'position'=>'3', 'active'=>false]);
 		$module_products = \App\Models\AdmModule::create(['menu_id' => $menu_modules->id, 'name' => 'Productos', 'title' => 'producto', 'controller' => 'product', 'icon'=>'fa-cubes', 'position'=>'5', 'active'=>false]);
 		$module_orders = \App\Models\AdmModule::create(['menu_id' => $menu_modules->id, 'name' => 'Órdenes', 'title' => 'orden', 'controller' => 'order', 'icon'=>'fa-shopping-cart', 'position'=>'7', 'active'=>false]);
-		$module_reports = \App\Models\AdmModule::create(['menu_id' => $menu_modules->id, 'name' => 'Reportes', 'title' => 'reporte', 'controller' => 'report', 'icon'=>'fa-line-chart', 'position'=>'9', 'active'=>false]);
 
 		$module_article = \App\Models\AdmModule::create(['menu_id' => $module_contenido->id, 'name' => 'Páginas', 'title' => 'contenido', 'controller' => 'article', 'icon'=>'fa-file', 'position'=>'1', 'active'=>true]);
 
@@ -177,8 +173,6 @@ class DatabaseSeeder extends Seeder {
 		\App\Models\AdmEvent::create(['module_id' => $module_products->id, 'action_id' => $action_admin->id]);
 		\App\Models\AdmEvent::create(['module_id' => $module_orders->id, 'action_id' => $action_lista->id]);
 		\App\Models\AdmEvent::create(['module_id' => $module_orders->id, 'action_id' => $action_admin->id]);
-		\App\Models\AdmEvent::create(['module_id' => $module_reports->id, 'action_id' => $action_lista->id]);
-		\App\Models\AdmEvent::create(['module_id' => $module_reports->id, 'action_id' => $action_admin->id]);
 
 		\App\Models\AdmEvent::create(['module_id' => $module_article->id, 'action_id' => $action_lista->id]);
 		\App\Models\AdmEvent::create(['module_id' => $module_article->id, 'action_id' => $action_admin->id]);
