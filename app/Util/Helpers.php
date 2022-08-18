@@ -112,28 +112,6 @@ if (!function_exists('url_target')) {
     }
 }
 
-if (!function_exists('url_product')) {
-    /**
-     * Returns a url of product
-     * */
-    function url_product($product)
-    {
-        $slug=Str::slug($product->name);
-        return url("/producto/{$product->id}/".$slug);
-    }
-}
-
-if (!function_exists('url_company')) {
-    /**
-     * Returns a url of product
-     * */
-    function url_company($local)
-    {
-        $slug = Str::slug($local->company->name);
-        return url("/ferreteria/{$local->id}/".$slug);
-    }
-}
-
 if (!function_exists('transl')) {
     /**
      * Returns a translation of current lang
@@ -251,57 +229,6 @@ if (!function_exists('get_district_pluck')) {
         return App\Models\UbgDistrict::where('department_id', $department_id)
         ->where('province_id', $province_id)
         ->pluck('name', 'id');
-    }
-}
-if (!function_exists('get_product_photo')) {
-    /**
-     * Returns an item of parameters by value and lang
-     * */
-    function get_product_photo($product)
-    {
-        $photos = get_field($product->metadata, 'photos');
-        $photo = is_array($photos) && count($photos)>0 ? get_userfiles($photos[0]): asset('/userfiles/product.jpg');
-
-        return $photo;
-    }
-}
-if (!function_exists('get_local_photo')) {
-    /**
-     * Returns an item of parameters by value and lang
-     * */
-    function get_local_photo($local)
-    {
-        $photo = get_field($local->metadata, 'photo');
-        $photo = !empty($photo)? get_userfiles($photo): asset('/userfiles/local.jpg');
-
-        return $photo;
-    }
-}
-if (!function_exists('get_products_top')) {
-    /**
-     * Returns an item of parameters by value and lang
-     * */
-    function get_products_top($local_id=null){
-
-        return App\Models\Product::where('active', true)->inRandomOrder()->take(5)->get();
-    }
-}
-if (!function_exists('get_locales_top')) {
-    /**
-     * Returns an item of parameters by value and lang
-     * */
-    function get_locales_top(){
-
-        return App\Models\Local::where('active', true)->inRandomOrder()->take(5)->get();
-    }
-}
-if (!function_exists('get_local_top')) {
-    /**
-     * Returns an item of parameters by value and lang
-     * */
-    function get_local_top(){
-
-        return App\Models\Local::where('active', true)->inRandomOrder()->first();
     }
 }
 if (!function_exists('upload_base_path')) {

@@ -36,10 +36,6 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function(){
 		Route::resource('notify', 'NotifyController');
 		Route::resource('parameter', 'ParameterController');
 
-		Route::resource('member', 'MemberController');
-		Route::resource('product', 'ProductController');
-		Route::resource('order', 'OrderController');
-
 		Route::get('/',['uses' => 'HomeController@index']);
 		Route::get('home/notfound',['uses' => 'HomeController@notfound']);
 		Route::get('home/permission',['uses' => 'HomeController@permission']);

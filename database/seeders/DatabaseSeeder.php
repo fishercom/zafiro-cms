@@ -12,32 +12,6 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Model::unguard();
-
-		DB::table('adm_events')->delete();
-		DB::table('adm_actions')->delete();
-		DB::table('adm_modules')->delete();
-		DB::table('adm_menus')->delete();
-		DB::table('users')->delete();
-		DB::table('profiles')->delete();
-
-		DB::table('cms_register_fields')->delete();
-		DB::table('cms_registers')->delete();
-		DB::table('cms_form_fields')->delete();
-		DB::table('cms_notifies')->delete();
-		DB::table('cms_forms')->delete();
-
-		DB::table('cms_articles')->delete();
-		DB::table('cms_schemas')->delete();
-		DB::table('cms_langs')->delete();
-
-		DB::table('cms_directories')->delete();
-		DB::table('cms_filetypes')->delete();
-
-		DB::table('cms_parameters')->delete();
-		DB::table('cms_parameters_group')->delete();
-
-		DB::table('cms_translates')->delete();
 		
 		// Seeding cms_configs
 		\App\Models\CmsConfig::create(['type' => 'string', 'name' => 'Site Predeterminado', 'alias' => 'site_name', 'value' => 'CMS']);
@@ -124,12 +98,7 @@ class DatabaseSeeder extends Seeder {
 		$module_directory = \App\Models\AdmModule::create(['menu_id' => $menu_cms->id, 'name' => 'Directorio de Archivos', 'title' => 'directorio', 'controller' => 'directory', 'icon'=>'fa-folder-open', 'position'=>'4', 'active'=>true]);
 
 		$module_parameter = \App\Models\AdmModule::create(['menu_id' => $menu_modules->id, 'name' => 'Parámetros', 'title' => 'parámetro', 'controller' => 'parameter', 'icon'=>'fa-bell', 'position'=>'1', 'active'=>true]);
-		$module_members = \App\Models\AdmModule::create(['menu_id' => $menu_modules->id, 'name' => 'Miembros', 'title' => 'miembro', 'controller' => 'member', 'icon'=>'fa-users', 'position'=>'3', 'active'=>false]);
-		$module_products = \App\Models\AdmModule::create(['menu_id' => $menu_modules->id, 'name' => 'Productos', 'title' => 'producto', 'controller' => 'product', 'icon'=>'fa-cubes', 'position'=>'5', 'active'=>false]);
-		$module_orders = \App\Models\AdmModule::create(['menu_id' => $menu_modules->id, 'name' => 'Órdenes', 'title' => 'orden', 'controller' => 'order', 'icon'=>'fa-shopping-cart', 'position'=>'7', 'active'=>false]);
-
 		$module_article = \App\Models\AdmModule::create(['menu_id' => $module_contenido->id, 'name' => 'Páginas', 'title' => 'contenido', 'controller' => 'article', 'icon'=>'fa-file', 'position'=>'1', 'active'=>true]);
-
 
 		// Seeding adm_actions
 		$action_lista = \App\Models\AdmAction::create(['name' => 'Listar (solo lectura)', 'alias'=>'listar', 'write_log'=>'0']);
@@ -167,13 +136,6 @@ class DatabaseSeeder extends Seeder {
 
 		\App\Models\AdmEvent::create(['module_id' => $module_parameter->id, 'action_id' => $action_lista->id]);
 		\App\Models\AdmEvent::create(['module_id' => $module_parameter->id, 'action_id' => $action_admin->id]);
-		\App\Models\AdmEvent::create(['module_id' => $module_members->id, 'action_id' => $action_lista->id]);
-		\App\Models\AdmEvent::create(['module_id' => $module_members->id, 'action_id' => $action_admin->id]);
-		\App\Models\AdmEvent::create(['module_id' => $module_products->id, 'action_id' => $action_lista->id]);
-		\App\Models\AdmEvent::create(['module_id' => $module_products->id, 'action_id' => $action_admin->id]);
-		\App\Models\AdmEvent::create(['module_id' => $module_orders->id, 'action_id' => $action_lista->id]);
-		\App\Models\AdmEvent::create(['module_id' => $module_orders->id, 'action_id' => $action_admin->id]);
-
 		\App\Models\AdmEvent::create(['module_id' => $module_article->id, 'action_id' => $action_lista->id]);
 		\App\Models\AdmEvent::create(['module_id' => $module_article->id, 'action_id' => $action_admin->id]);
 

@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'name', 'lastname', 'profile_id', 'is_member', 'metadata', 'active',
+        'username', 'email', 'password', 'name', 'lastname', 'profile_id', 'metadata', 'active',
     ];
 
     /**
@@ -39,11 +39,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function member()
-    {
-        return $this->hasOne('App\Models\Member', 'user_id', 'id');
-    }
-
     public function profile()
     {
         return $this->hasOne('App\Models\Profile', 'id', 'profile_id');
@@ -59,7 +54,6 @@ class User extends Authenticatable
     }
 
     public function findForPassport($identifier) {
-        //return $this->where('email', $identifier)->where('member', true)->first();
         return $this->where('email', $identifier)->first();
     }
 

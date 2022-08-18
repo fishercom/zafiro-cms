@@ -27,7 +27,6 @@ class UserController extends AdminController {
 		$users=User::select()
 			->whereNotNull('profile_id')
 			->where('name', 'LIKE', '%'.$filter.'%')
-			->whereNull('is_member')
 			->orderBy('name')
 			->Paginate();
 
