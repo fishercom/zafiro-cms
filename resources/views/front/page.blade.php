@@ -4,23 +4,9 @@
 $url_root= url('/');
 $url_base= $url_root;
 
-switch(explode('.', $page->route_view)[1]){
-	case 'company':
-		$banner_top = 'front.company.partials.banner_top';
-		break;
-	case 'product':
-		$banner_top = 'front.product.partials.banner_top';
-		break;
-	default:
-		$banner_top = 'front.partials.banner_top';
-		break;
-}
-
 ?>
 @section('content')
 	<section>
-		@include($banner_top)
-
 		<div class="seccion_principal">
 			@if(View::exists($page->route_view))
 				@include($page->route_view)
