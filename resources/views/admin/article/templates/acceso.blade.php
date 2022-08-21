@@ -19,13 +19,3 @@ $directory=\App\Models\CmsDirectory::select()->where('alias', 'acceso_icono')->f
 	</div>
 
 	@include('admin.article.partials.enlace')
-
-<script type="text/javascript">
-$(document).ready(function(){
-CKEDITOR.replace( 'resumen',
-    {
-        toolbar : 'Basic',
-        height:"100"
-    });
-});
-</script>

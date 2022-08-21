@@ -49,13 +49,3 @@ $directory=\App\Models\CmsDirectory::select()->where('alias', 'noticia_imagen')-
 	      {!! Form::textarea('description', null, ['class'=>'form-control ckeditor']) !!}
 	  </div>
 	</div>
-<script type="text/javascript">
-$(document).ready(function(){
-	CKEDITOR.replace( 'resumen',
-    {
-        toolbar : 'Basic',
-        height:"100"
-    });
-	$.fn.datepicker.defaults.format = "yyyy-mm-dd";
-});
-</script>

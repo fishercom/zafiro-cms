@@ -122,5 +122,12 @@ $(document).ready(function(){
     });
   });
   $(".fpanel").hide();
+  if(CKEDITOR.length>0){
+    CKEDITOR.replace( 'resumen',
+		{
+			toolbar : 'Basic',
+			height:"100"
+		});
+  }
 });
 </script>

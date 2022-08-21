@@ -28,14 +28,3 @@ $directory=\App\Models\CmsDirectory::select()->where('alias', 'evento_imagen')->
 	      {!! Form::textarea('resumen', null, ['class'=>'form-control']) !!}
 	  </div>
 	</div>
-
-<script type="text/javascript">
-$(document).ready(function(){
-	CKEDITOR.replace( 'resumen',
-    {
-        toolbar : 'Basic',
-        height:"100"
-    });
-	$.fn.datepicker.defaults.format = "yyyy-mm-dd";
-});
-</script>
