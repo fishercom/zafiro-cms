@@ -17,4 +17,15 @@
 
 	{!! Form::close() !!}
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	CKEDITOR.replace( 'resumen',
+		{
+			toolbar : 'Basic',
+			height:"100"
+		});
+	});
+</script>
+
 @endsection

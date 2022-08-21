@@ -76,6 +76,15 @@ if (count($config['hidden_folders'])) {
     }
 }
 
+$the_path=$config['current_path'].$rfm_subfolder.$subdir;
+if (!file_exists($the_path))
+{
+    if(!mkdir($the_path, 0777, true)){
+        $subdir = '';
+        $rfm_subfolder = "";
+    }
+}
+
 if ($config['show_total_size']) {
     list($sizeCurrentFolder, $fileCurrentNum, $foldersCurrentCount) = folder_info($config['current_path'], false);
 }
