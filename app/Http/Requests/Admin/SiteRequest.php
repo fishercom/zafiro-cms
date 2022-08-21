@@ -24,7 +24,8 @@ class SiteRequest extends Request {
 	public function rules()
 	{
 		return [
-			'name'=>'required', 'segment'=>'required', 'site_url'=>'required', 'schema_group_id'=>'required'
+			//'name'=>'required', 'segment'=>'required', 'site_url'=>'required', 'schema_group_id'=>'required'
+			'name'=>'required', 'site_url'=>'required', 'schema_group_id'=>'required'
 		];
 	}
 

@@ -12,12 +12,6 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		
-		// Seeding cms_configs
-		\App\Models\CmsConfig::create(['type' => 'string', 'name' => 'Site Predeterminado', 'alias' => 'site_name', 'value' => 'CMS']);
-		\App\Models\CmsConfig::create(['type' => 'string', 'name' => 'Correo Postmaster', 'alias' => 'postmaster', 'value' => 'no-reply@gmail.com']);
-		\App\Models\CmsConfig::create(['type' => 'text', 'name' => 'Google Analytics', 'alias' => 'analytics']);
-
 		// Seeding cms_langs
 		$lang_default = \App\Models\CmsLang::create(['name' => 'Español', 'iso' => 'es', 'active'=>true]);
 		$lang_english = \App\Models\CmsLang::create(['name' => 'English', 'iso' => 'en', 'active'=>true]);
@@ -26,7 +20,7 @@ class DatabaseSeeder extends Seeder {
 		$schg_default= \App\Models\CmsSchemaGroup::create(['name' => 'Site Principal', 'layout'=>'front', 'default'=>'1', 'active'=>true]);
 		
 		// Seeding cms_sites
-		$site_root= \App\Models\CmsSite::create(['name' => 'Site Principal', 'segment' => '', 'site_url'=>'http://localhost/zafiro-cms', 'schema_group_id'=>$schg_default->id, 'default'=>'1', 'active'=>true]);
+		$site_root= \App\Models\CmsSite::create(['name' => 'Site Principal', 'site_url'=>'http://localhost/zafiro-cms', 'schema_group_id'=>$schg_default->id, 'default'=>'1', 'active'=>true]);
 
 		// Seeding cms_translates_alias
 
@@ -51,11 +45,8 @@ class DatabaseSeeder extends Seeder {
 		\App\Models\CmsDirectory::create(['type_id' => $ftype_image->id, 'name' => 'Usuario: foto', 'alias' => 'user_photo', 'path' => 'user/photo/', 'active'=>true]);
 
 
-		//=============================================================================================================================
-
 		// Seeding cms_forms
 		$form_contact = \App\Models\CmsForm::create(['name' => 'Formulario de Contacto', 'alias'=>'contacto', 'active'=>true]);
-
 
 		// Seeding profiles
 		$perfil_sa = \App\Models\Profile::create(['name' => 'Super', 'active'=>true, 'sa'=>'1']);
@@ -93,7 +84,7 @@ class DatabaseSeeder extends Seeder {
 		$module_cuenta = \App\Models\AdmModule::create(['menu_id' => $menu_forms->id, 'name' => 'Cuentas de correo', 'title' => 'cuenta', 'controller' => 'notify', 'icon'=>'fa-at', 'position'=>'2', 'active'=>true]);
 
 		$module_config = \App\Models\AdmModule::create(['menu_id' => $menu_cms->id, 'name' => 'Configuración', 'title' => 'configuración', 'controller' => 'config', 'icon'=>'fa-cog', 'position'=>'1', 'active'=>true]);
-		$module_site = \App\Models\AdmModule::create(['menu_id' => $menu_cms->id, 'name' => 'Sites', 'title' => 'site', 'controller' => 'site', 'icon'=>'fa-globe', 'position'=>'2', 'active'=>false]);
+		$module_site = \App\Models\AdmModule::create(['menu_id' => $menu_cms->id, 'name' => 'Sites', 'title' => 'site', 'controller' => 'site', 'icon'=>'fa-globe', 'position'=>'2', 'active'=>true]);
 		$module_schema = \App\Models\AdmModule::create(['menu_id' => $menu_cms->id, 'name' => 'Esquemas', 'title' => 'esquema', 'controller' => 'schema', 'icon'=>'fa-random', 'position'=>'3', 'active'=>true]);
 		$module_directory = \App\Models\AdmModule::create(['menu_id' => $menu_cms->id, 'name' => 'Directorio de Archivos', 'title' => 'directorio', 'controller' => 'directory', 'icon'=>'fa-folder-open', 'position'=>'4', 'active'=>true]);
 

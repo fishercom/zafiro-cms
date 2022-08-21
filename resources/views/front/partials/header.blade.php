@@ -7,16 +7,6 @@ $menu = get_article('seccion_content');
 ?>
 <div class="container">
 	
-	<div class="logo">
-		<a href="{{ url('/') }}"><img src="{{ asset('/images/logo.svg') }}"></a>
-	</div>	
-
-	@if(Auth::check())
-	<div class="barra_usuario">
-
-	</div>
-	@endif
-
 	<div class="btn_menu">
 		<div class="o">
 			<div class="sanguche">

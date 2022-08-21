@@ -6,12 +6,4 @@ use Illuminate\Support\Facades\Request;
 
 class AdminController extends Controller {
 
-    public function __construct()
-    {
-		//Middleware moved to routes config
-		//$this->middleware('auth');
-		//$this->middleware('admin');
-
-    }
-
 }

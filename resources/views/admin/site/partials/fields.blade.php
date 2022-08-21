@@ -36,6 +36,20 @@ $sch_groups = [null=>'--seleccione--']+CmsSchemaGroup::select('name', 'id')
 	</div>
 
 	<div class="form-group">
+		{!! Form::label('metadata[analytics]', 'Google Analytics', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
+		<div class="col-sm-9 col-lg-11">
+		{!! Form::textarea('metadata[analytics]', null, ['class'=>'form-control', 'rows'=>4]) !!}
+		</div>
+	</div>
+
+	<div class="form-group">
+		{!! Form::label('metadata[postmaster]', 'Correo Postmaster', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
+		<div class="col-sm-9 col-lg-11">
+		{!! Form::text('metadata[postmaster]', null, ['class'=>'form-control']) !!}
+		</div>
+	</div>
+
+	<div class="form-group">
 		{!! Form::label('', '', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
 		<div class="col-sm-9 col-lg-11">
 			<label>

@@ -1,5 +1,5 @@
 <?php
-$conf_sitename = \App\Models\CmsConfig::where('alias', 'site_name')->first()->value;
+$site = App\Models\CmsSite::where('default', true)->first();
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="es"> <![endif]-->
@@ -10,7 +10,7 @@ $conf_sitename = \App\Models\CmsConfig::where('alias', 'site_name')->first()->va
 <html class="no-js" dir="ltr" lang="es">
 <!--<![endif]-->
 <head>
-	<title>{{ $conf_sitename }} - Admin</title>
+	<title>{{ $site->name }} - Admin</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<!-- Tell the browser to be responsive to screen width -->

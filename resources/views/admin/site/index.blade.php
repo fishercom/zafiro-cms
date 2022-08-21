@@ -53,10 +53,12 @@
     </table>
     {!! $sites->render() !!}
   </div>
+<!--
   <div class="box-footer">
     <a class="btn btn-success" role="button" href="{{ route('site.create') }}">
     <span class="fa fa-plus"></span> agregar {{ $current_module->title }} </a>
   </div>
+-->
 </div>
 
 @include('admin.partials.delete_confirm')
