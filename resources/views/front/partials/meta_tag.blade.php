@@ -1,6 +1,6 @@
 <?php
 
-$metas_title = ($page->front_view=='seccion_home')? $site->name: $page->title.' - '.$site->name;
+$metas_title = ($page->front_view=='home_page')? $site->name: $page->title.' - '.$site->name;
 $metas_descr = get_field($page->metadata, 'meta_description');
 $metas_keywr = get_field($page->metadata, 'meta_keywords');
 $metas_robot = get_field($page->metadata, 'meta_robots');

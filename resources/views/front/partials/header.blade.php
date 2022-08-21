@@ -2,7 +2,7 @@
 use \App\Models\CmsLang;
 use Illuminate\Support\Facades\Cookie;
 
-$menu = get_article('seccion_content');
+$menu = get_article('menu_principal');
 
 ?>
 <div class="container">

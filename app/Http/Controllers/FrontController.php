@@ -29,7 +29,7 @@ class FrontController extends Controller {
 
 	public function index(Request $request)
 	{
-		$page = get_article('seccion_home', $this->site->id);
+		$page = get_article('home_page', $this->site->id);
 
 		//Page not found
 		if(!$page){
