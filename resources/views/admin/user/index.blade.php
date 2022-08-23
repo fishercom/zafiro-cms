@@ -22,10 +22,9 @@
 
     <table class="table table-bordered table-hover">
     <tr>
-        <th class="col-sm-3">Nombre</th>
-        <th class="col-sm-3">Apellido</th>
+        <th class="col-sm-5">Nombre</th>
         <th class="col-sm-2">Email</th>
-        <th class="col-sm-1">Perfil</th>
+        <th class="col-sm-2">Perfil</th>
         <th class="col-sm-1 text-center">Activo</th>
         <th class="col-sm-2">Acciones</th>
     </tr>
@@ -35,7 +34,6 @@
     ?>
     <tr>
         <td>{{ $user->name }}</td>
-        <td>{{ $user->lastname }}</td>
         <td>{{ $user->email }}</td>
         <td>{{ $user->profile->name }}</td>
         <td class="text-center">{!! $active !!}</td>

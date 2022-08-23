@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder {
 
 
 		// Seeding users
-		$user_admin = \App\Models\User::create(['username'=>'fischer', 'email' => 'fishdev@gmail.com', 'password' => 'admin', 'name' => 'Administrador', 'profile_id' => $perfil_sa->id, 'active' => '1', 'default' => '1']);
+		$user_admin = \App\Models\User::create(['email' => 'fishdev@gmail.com', 'password' => 'admin', 'name' => 'Administrador', 'profile_id' => $perfil_sa->id, 'active' => '1', 'default' => '1']);
 
 
 		// Seeding menus

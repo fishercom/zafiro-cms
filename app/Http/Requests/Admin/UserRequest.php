@@ -27,7 +27,6 @@ class UserRequest extends Request {
 			//'email'=>'required|email|unique:users,email', // validate for insert
 			'email'=>'required|email',
 			'name'=>'required',
-			'lastname'=>'required',
 			'profile_id'=>'required'
 		];
 	}

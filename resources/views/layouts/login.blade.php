@@ -1,5 +1,5 @@
 <?php
-$conf_sitename = \App\Models\CmsConfig::where('alias', 'site_name')->first()->value;
+$app_name = env('APP_NAME', 'Zafiro CMS');
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="es"> <![endif]-->
@@ -10,7 +10,7 @@ $conf_sitename = \App\Models\CmsConfig::where('alias', 'site_name')->first()->va
 <html class="no-js" dir="ltr" lang="es">
 <!--<![endif]-->
 <head>
-	<title>{{ $conf_sitename }} login</title>
+	<title>{{ $app_name }} login</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<!-- Tell the browser to be responsive to screen width -->
@@ -37,7 +37,7 @@ $conf_sitename = \App\Models\CmsConfig::where('alias', 'site_name')->first()->va
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="login"><b>{{ $conf_sitename }}</b> login</a>
+            <a href="login"><b>{{ $app_name }}</b> login</a>
         </div>
 
 		@yield('content')

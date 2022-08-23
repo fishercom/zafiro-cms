@@ -20,12 +20,6 @@ $profiles=\App\Models\Profile::select()
 		{!! Form::text('name', null, ['class'=>'form-control']) !!}
 		</div>
 	</div>
-	<div class="form-group">
-		{!! Form::label('name', 'Apellidos', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
-		<div class="col-sm-9 col-lg-11">
-		{!! Form::text('lastname', null, ['class'=>'form-control']) !!}
-		</div>
-	</div>
 
 	<div class="form-group">
 		{!! Form::label('email', 'Email', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}

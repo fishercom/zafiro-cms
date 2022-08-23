@@ -1,5 +1,5 @@
 <?php
-$site = App\Models\CmsSite::where('default', true)->first();
+$app_name = env('APP_NAME', 'Zafiro CMS');
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="es"> <![endif]-->
@@ -10,7 +10,7 @@ $site = App\Models\CmsSite::where('default', true)->first();
 <html class="no-js" dir="ltr" lang="es">
 <!--<![endif]-->
 <head>
-	<title>{{ $site->name }} - Admin</title>
+	<title>{{ $app_name }} - Admin</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<!-- Tell the browser to be responsive to screen width -->

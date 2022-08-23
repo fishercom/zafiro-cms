@@ -1,5 +1,5 @@
 <?php
-$conf_sitename = \App\Models\CmsConfig::where('alias', 'site_name')->first()->value;
+$app_name = env('APP_NAME', 'Zafiro CMS');
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="es"> <![endif]-->
@@ -10,7 +10,7 @@ $conf_sitename = \App\Models\CmsConfig::where('alias', 'site_name')->first()->va
 <html class="no-js" dir="ltr" lang="es">
 <!--<![endif]-->
 <head>
-	<title>{{ $conf_sitename }} admin</title>
+	<title>{{ $app_name }} admin</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<!-- Tell the browser to be responsive to screen width -->
@@ -67,7 +67,7 @@ $conf_sitename = \App\Models\CmsConfig::where('alias', 'site_name')->first()->va
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">{{ $conf_sitename }}</a>
+				<a class="navbar-brand" href="#">{{ $app_name }}</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
