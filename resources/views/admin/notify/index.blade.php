@@ -34,7 +34,7 @@
     @foreach ($notifies as $notify)
     <?php
         $active = $notify->active? '<i class="fa fa-check"></i>' : NULL;
-        $params = '?form_id='.$notify->form_id.'&page='.$page;
+        $params = '?form_id='.$notify->form_id;
     ?>
     <tr>
         <td>{{ $notify->user->name }}</td>

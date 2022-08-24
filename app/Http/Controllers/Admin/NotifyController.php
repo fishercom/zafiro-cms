@@ -130,7 +130,7 @@ class NotifyController extends AdminController {
 	public function update(NotifyRequest $request, $id)
 	{
 		$notify = CmsNotify::FindOrFail($id);
-		$notify->fill($request->all());
+		$notify->fill($request->post());
 		$notify->recipients=preg_replace(array("/;/", "/\n\r/", "/\r\n/", "/\t/"), ",", str_replace(' ', '', $request->recipients));
 		$notify->active = $request->active;
 		$notify->save();
