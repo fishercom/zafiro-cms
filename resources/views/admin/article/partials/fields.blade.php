@@ -14,6 +14,13 @@ $metatag_dir = \App\Models\CmsDirectory::select()->where('alias', 'metatag_image
 $(document).ready(function(){
   CKEDITOR.config.filebrowserBrowseUrl = "{!! asset('/assets/plugins/filemanager/dialog.php?type=2&editor=ckeditor&fldr=misc&akey=aZc1edG8c65d3') !!}";
   CKEDITOR.config.filebrowserUploadUrl = "{!! asset('/assets/plugins/filemanager/dialog.php?type=2&editor=ckeditor&fldr=misc&akey=aZc1edG8c65d3') !!}";
+  if($('textarea[name=resumen]').length>0){
+    CKEDITOR.replace( 'resumen',
+		{
+			toolbar : 'Basic',
+			height:"100"
+		});
+  }
 });
 </script>
 <div class="box-body">
@@ -122,12 +129,5 @@ $(document).ready(function(){
     });
   });
   $(".fpanel").hide();
-  if(CKEDITOR.length>0){
-    CKEDITOR.replace( 'resumen',
-		{
-			toolbar : 'Basic',
-			height:"100"
-		});
-  }
 });
 </script>

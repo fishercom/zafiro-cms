@@ -68,18 +68,6 @@ if (!function_exists('get_article_slug')) {
     }
 }
 
-if (!function_exists('get_userfiles')) {
-    /**
-     * Returns userfiles resource url
-     * */
-    function get_userfiles($resource)
-    {
-        $url = asset('/userfiles/'.$resource);
-
-        return $url;
-    }
-}
-
 if (!function_exists('url_article')) {
     /**
      * Returns a url of article
@@ -120,6 +108,29 @@ if (!function_exists('transl')) {
     {
 
         return App\Util\Transl::get($word);
+    }
+}
+
+if (!function_exists('upload_base_path')) {
+    /**
+     * Returns an item of parameters by value and lang
+     * */
+    function upload_base_path()
+    {
+
+        return base_path().'/public/userfiles/';
+    }
+}
+
+if (!function_exists('userfiles')) {
+    /**
+     * Returns userfiles resource url
+     * */
+    function userfiles($resource)
+    {
+        $url = asset('/userfiles/'.$resource);
+
+        return $url;
     }
 }
 
@@ -229,15 +240,5 @@ if (!function_exists('get_district_pluck')) {
         return App\Models\UbgDistrict::where('department_id', $department_id)
         ->where('province_id', $province_id)
         ->pluck('name', 'id');
-    }
-}
-if (!function_exists('upload_base_path')) {
-    /**
-     * Returns an item of parameters by value and lang
-     * */
-    function upload_base_path()
-    {
-
-        return base_path().'/public/userfiles/';
     }
 }

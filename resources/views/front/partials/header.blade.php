@@ -30,7 +30,7 @@ $menu = get_article('menu_principal');
 		?>
 			<li class="{{ $activo }}">
 				<a href="{{ url_article($item) }}" class="full"></a>
-				<div class="ico" style="background-image: url({{ get_userfiles($icono_menu)  }})"></div>
+				<div class="ico" style="background-image: url({{ userfiles($icono_menu)  }})"></div>
 				{{ $item->title }}
 			</li>
 		@endforeach
