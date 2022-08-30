@@ -1,7 +1,7 @@
 <?php
 $background=get_field($article->metadata, 'background');
 
-$directory=\App\Models\CmsDirectory::select()->where('alias', 'animacion_home')->first()->path;
+$directory=get_directory('animacion_home');
 ?>
 <div class="form-group">
 	{!! Form::label('subtitle', 'Subtítulo', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
@@ -20,6 +20,6 @@ $directory=\App\Models\CmsDirectory::select()->where('alias', 'animacion_home')-
 <div class="form-group">
 	{!! Form::label('resumen', 'Texto', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
 	<div class="col-sm-9 col-lg-11">
-	    {!! Form::textarea('resumen', null, ['class'=>'form-control']) !!}
+	    {!! Form::textarea('resumen', null, ['class'=>'form-control ckeditor']) !!}
 	</div>
 </div>

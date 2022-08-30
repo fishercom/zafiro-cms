@@ -1,8 +1,14 @@
 <?php
 $icono=get_field($article->metadata, 'icono');
 
-$directory=get_directory('widget_icono');
+$directory=get_directory('widget_imagen');
 ?>
+<div class="form-group">
+	{!! Form::label('subtitle', 'Subtítulo', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
+	<div class="col-sm-9 col-lg-11">
+	    {!! Form::text('subtitle', null, ['class'=>'form-control']) !!}
+	</div>
+</div>
 <div class="form-group">
 	{!! Form::label('metadata[icono]', 'Imagen', ['class'=>'col-sm-3 col-lg-1 control-label']) !!}
 	<div class="col-sm-9 col-lg-11">

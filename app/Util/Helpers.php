@@ -111,29 +111,6 @@ if (!function_exists('transl')) {
     }
 }
 
-if (!function_exists('upload_base_path')) {
-    /**
-     * Returns an item of parameters by value and lang
-     * */
-    function upload_base_path()
-    {
-
-        return base_path().'/public/userfiles/';
-    }
-}
-
-if (!function_exists('userfiles')) {
-    /**
-     * Returns userfiles resource url
-     * */
-    function userfiles($resource)
-    {
-        $url = asset('/userfiles/'.$resource);
-
-        return $url;
-    }
-}
-
 if (!function_exists('get_field')) {
     /**
      * Returns a value from xml content field
@@ -144,6 +121,27 @@ if (!function_exists('get_field')) {
             return $arr[$field];
         else
             return null;
+    }
+}
+
+if (!function_exists('get_directory')) {
+    /**
+     * Returns userfiles resource url
+     * */
+    function get_directory($alias)
+    {
+        $directory=\App\Models\CmsDirectory::select()->where('alias', $alias)->first();
+        return $directory? $directory->path: '';
+    }
+}
+
+if (!function_exists('userfiles')) {
+    /**
+     * Returns userfiles resource url
+     * */
+    function userfiles($resource)
+    {
+        return asset('/userfiles/'.$resource);
     }
 }
 
@@ -240,5 +238,27 @@ if (!function_exists('get_district_pluck')) {
         return App\Models\UbgDistrict::where('department_id', $department_id)
         ->where('province_id', $province_id)
         ->pluck('name', 'id');
+    }
+}
+if (!function_exists('upload_base_path')) {
+    /**
+     * Returns an item of parameters by value and lang
+     * */
+    function upload_base_path()
+    {
+
+        return base_path().'/public/userfiles/';
+    }
+}
+if (!function_exists('youtube_url')) {
+    /**
+     * Returns an item of parameters by value and lang
+     * */
+    function youtube_url($url){
+
+        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $url, $matches);
+        if(count($matches)>0) $url='https://www.youtube.com/embed/'.$matches[0];
+
+        return $url;
     }
 }
