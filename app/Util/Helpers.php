@@ -262,3 +262,12 @@ if (!function_exists('youtube_url')) {
         return $url;
     }
 }
+if (!function_exists('exportExcel')){
+    /**
+     * Generate SpreedSheet document for download.
+     */
+    function exportExcel($head, $data, $filename)
+    {
+        return Excel::download(new \App\Util\ExcelExport($head, $data), $filename.'.xlsx');
+    }
+}

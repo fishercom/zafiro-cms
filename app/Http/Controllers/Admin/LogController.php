@@ -35,13 +35,18 @@ class LogController extends AdminController {
 			->orderBy('created_at', 'desc');
 
 		if(Request::has('export')){
-			return Excel::create('Logs_'.date('dmY'), function($excel) use($logs){
-			    $excel->sheet('Lista', function($sheet) use($logs){
-			        // Sheet manipulation
-					$sheet->fromArray($logs->get()->toArray());
-					//$sheet->rows($registers->get()->toArray());
-			    });
-			})->export('xls');
+			$rows = $logs->get();
+			$head = ['#ID', 'Usuario', 'Módulo', 'Comentario', 'Fecha Creación', 'Fecha Actualización'];
+
+			$data = [];
+			foreach ($rows as $log) {
+				$user = $log->user;
+				$module = $log->event->module;
+				$data[] = [$log->id, $user->name, $module->name, $log->comment, $log->created_at, $log->updated_at];
+			}
+
+			//Export spreadsheet document
+			return exportExcel($head, $data, 'Logs_'.date('dmY'));
 		}
 
 		View::share('filter', $filter);
