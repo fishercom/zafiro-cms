@@ -4,7 +4,7 @@ if (!function_exists('get_article')) {
     /**
      * Returns an article object
      * */
-    function get_article($front_view, $site_id=1, $lang_id=1)
+    function get_article($front_view, $lang_id, $site_id=1)
     {
         $page = \App\Models\CmsArticle::whereHas('schemas', function($query) use($front_view){
             $query->where('front_view', $front_view);

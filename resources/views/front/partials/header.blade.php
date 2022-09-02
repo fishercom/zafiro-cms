@@ -1,8 +1,11 @@
 <?php
 use \App\Models\CmsLang;
-use Illuminate\Support\Facades\Cookie;
+//use Illuminate\Support\Facades\Cookie;
 
-$menu = get_article('menu_principal');
+$langs = \App\Models\CmsLang::where('iso', '!=', $lang->iso)->where('active', true)->get();
+
+$menu_principal = get_article('menu_principal', $lang->id);
+$menu_header = get_article('menu_header', $lang->id);
 
 ?>
 <div class="container">
@@ -21,9 +24,9 @@ $menu = get_article('menu_principal');
 	</div>	
 
 	<nav>
-	@if($menu)
+	@if($menu_principal)
 		<ul class="menu">
-		@foreach($menu->children as $item)
+		@foreach($menu_principal->children as $item)
 		<?php
 			$activo = $page->front_view == $item->schema->front_view? 'activo': null;
 			$icono_menu = get_field($item->metadata, 'icono_menu');

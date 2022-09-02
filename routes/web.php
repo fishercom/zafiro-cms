@@ -47,6 +47,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function(){
 });
 
 Route::get('/',['uses' => 'FrontController@index']);
+Route::get('/{iso}',['uses' => 'FrontController@home'])->where('iso', 'es|en|de|fr');
 Route::get('/{slug}', ['uses' => 'FrontController@page']);
 
 Route::post('payment_response', ['uses' => 'PaymentController@payment_response']);

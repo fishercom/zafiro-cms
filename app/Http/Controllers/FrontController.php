@@ -27,9 +27,15 @@ class FrontController extends Controller {
 		View::share('site', $this->site);
 	}
 
-	public function index(Request $request)
+	public function index()
 	{
-		$page = get_article('home_page', $this->site->id);
+		return $this->home('es');
+	}
+
+	public function home($iso)
+	{
+		$lang = CmsLang::where('iso', $iso)->first();
+		$page = get_article('home_page', $lang->id);
 
 		//Page not found
 		if(!$page){
@@ -39,7 +45,8 @@ class FrontController extends Controller {
 		$page->front_view = $page->schema->front_view;
 		$page->route_view = 'front.templates.'.$page->front_view;
 
-		return view('front.home', compact('page'));
+		//setlocale(LC_ALL, $lang->iso);
+		return view('front.home', compact('page', 'lang'));
 	}
 
 	public function page($slug, Request $request)
@@ -73,8 +80,10 @@ class FrontController extends Controller {
 
 		$page->front_view = $page->schema->front_view;
 		$page->route_view = 'front.templates.'.$page->front_view;
+		$lang = CmsLang::find($page->lang_id);
 
-		return view('front.page', compact('page'));
+		//setlocale(LC_ALL, $lang->iso);
+		return view('front.page', compact('page', 'lang'));
 	}
 
 	public function popup()

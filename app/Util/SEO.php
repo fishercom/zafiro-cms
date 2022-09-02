@@ -5,7 +5,6 @@ class SEO {
 
     public static function url_redirect($article, $params=NULL){
 
-    	$url=NULL;
         switch($article->ref_type){
             case 1:
                 $url=self::url_redirect_id($article->ref_id);
