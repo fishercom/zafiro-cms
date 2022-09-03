@@ -8,6 +8,7 @@ use Illuminate\Routing\UrlGenerator;
 use Carbon\Carbon;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
         setlocale(LC_TIME, config('app.locale'));
         date_default_timezone_set(config('app.timezone'));
 
+        Paginator::useBootstrap();
         Schema::defaultStringLength(191);
     }
 }
