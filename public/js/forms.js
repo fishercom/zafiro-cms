@@ -77,13 +77,16 @@ submit_form = async (e)=>{
 		form.classList.add('d-none');
 		message.classList.remove('d-none');
 		//window.scrollTo(0, 0);
+	}, function(error){
+		submit.innerHTML=lblsubmit;
+		alert(error);
 	});
 
   return false;
 
 }
 
-post_form = (url, params, callback)=>{
+post_form = (url, params, callback, callback_err=null)=>{
 	fetch(url, {
 		method: 'POST',
 		body: params,
@@ -98,6 +101,6 @@ post_form = (url, params, callback)=>{
 	.then(data => callback(data))
 	.catch(error => {
 		console.error(error);
-		alert(error);
+		if(callback_err) callback_err(error);
 	});
 }

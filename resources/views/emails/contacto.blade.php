@@ -40,7 +40,7 @@ $contact=\App\Models\CmsParameter::find($register->contact_id);
 	</div>
 	<div>
 		<div style="display: inline-block; width: 120px">
-			Comentario:
+			Mensaje:
 		</div>
 		<div style="display: inline-block;">
 			{{ $register->message }}
