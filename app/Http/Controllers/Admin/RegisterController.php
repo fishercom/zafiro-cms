@@ -50,10 +50,11 @@ class RegisterController extends AdminController {
 			->where('created_at', '>=', $sdate)
 			->where('created_at', '<', date('Y-m-d', strtotime($edate.' +1 days')))
 			->where(function($query) use ($filter){
-				$query->where('first_name', 'LIKE', '%'.strtolower($filter).'%');
-				$query->orWhere('last_name', 'LIKE', '%'.strtolower($filter).'%');
+				$query->where('name', 'LIKE', '%'.strtolower($filter).'%');
 				$query->orWhere('email', 'LIKE', '%'.strtolower($filter).'%');
+				$query->orWhere('phone', 'LIKE', '%'.strtolower($filter).'%');
 				$query->orWhereNull('email');
+				$query->orWhereNull('phone');
              });
 
 		if(Request::has('export')){

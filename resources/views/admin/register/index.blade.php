@@ -42,9 +42,9 @@
 
     <table class="table table-bordered table-hover">
     <tr>
-        <th class="col-sm-3">Nombres</th>
-        <th class="col-sm-3">Apellidos</th>
+        <th class="col-sm-4">Nombre</th>
         <th class="col-sm-2">Email</th>
+        <th class="col-sm-2">Teléfono</th>
         <th class="col-sm-2">Fecha</th>
         <th class="col-sm-2">Acciones</th>
     </tr>
@@ -53,9 +53,9 @@
         $params = '?form_id='.$register->form_id.'&page='.$page;
     ?>
     <tr>
-        <td>{{ $register->first_name }}</td>
-        <td>{{ $register->last_name }}</td>
+        <td>{{ $register->name }}</td>
         <td>{{ $register->email }}</td>
+        <td>{{ $register->phone }}</td>
         <td>{{ $register->created_at }}</td>
         <td>
         <a href="{{ route('register.show', $register) }}{{ $params }}" class = "btn btn-warning btn-xs">

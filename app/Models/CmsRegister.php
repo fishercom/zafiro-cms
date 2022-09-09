@@ -11,12 +11,17 @@ class CmsRegister extends Model {
 	 * @var array
 	 */
 	protected $table = 'cms_registers';
-	protected $fillable = ['guid', 'periodo', 'user_id', 'red_salud', 'micro_red', 'establecimiento', 'categoria', 'departamento', 'provincia', 'distrito', 'status'];
+	protected $fillable = ['form_id', 'contact_id', 'name', 'email', 'phone', 'comments', 'message', 'review', 'review_date'];
 
 
-    public function user()
+    public function form()
     {
-        return $this->hasOne('App\Models\User', 'id', 'user_id');
+        return $this->hasOne('App\Models\CmsForm', 'id', 'form_id');
+    }
+
+    public function contact()
+    {
+        return $this->hasOne('App\Models\CmsParameter', 'id', 'contact_id');
     }
 
 }

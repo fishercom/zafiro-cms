@@ -1,50 +1,25 @@
 <?php
-$parameter=\App\Models\CmsParameter::find($register->contact_id);
+$contact=\App\Models\CmsParameter::find($register->contact_id);
 ?>
-<figure>
-	<img src="{{ url('/images/logo_sslp.png') }}" />
-</figure>
-<div style="font-family: arial">
+<div style="padding: 30px; font-family: arial; line-height: 25px; background-color: #C50A37; color: #fff; border-radius: 10px">
+	<img src="{{ url('/images/logo.svg') }}" />
 	<h1>Solicitud de Contacto</h1>
-
+@if($contact)
 	<div>
 		<div style="display: inline-block; width: 120px">
 			Clasificación:
 		</div>
 		<div style="display: inline-block;">
-			{{ $parameter->name }}
+			{{ $contact->name }}
 		</div>
 	</div>
+@endif
 	<div>
 		<div style="display: inline-block; width: 120px">
-			Nombres:
+			Nombre:
 		</div>
 		<div style="display: inline-block;">
-			{{ $register->first_name }}
-		</div>
-	</div>
-	<div>
-		<div style="display: inline-block; width: 120px">
-			Apellidos:
-		</div>
-		<div style="display: inline-block;">
-			{{ $register->last_name }}
-		</div>
-	</div>
-	<div>
-		<div style="display: inline-block; width: 120px">
-			DNI:
-		</div>
-		<div style="display: inline-block;">
-			{{ $register->dni }}
-		</div>
-	</div>
-	<div>
-		<div style="display: inline-block; width: 120px">
-			Dirección:
-		</div>
-		<div style="display: inline-block;">
-			{{ $register->address }}
+			{{ $register->name }}
 		</div>
 	</div>
 	<div>
@@ -68,7 +43,7 @@ $parameter=\App\Models\CmsParameter::find($register->contact_id);
 			Comentario:
 		</div>
 		<div style="display: inline-block;">
-			{{ $register->comment }}
+			{{ $register->message }}
 		</div>
 	</div>
 </div>

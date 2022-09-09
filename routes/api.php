@@ -30,4 +30,6 @@ Route::get('/ubigeo/province/{department_id}/list',['uses' => 'Api\UbigeoControl
 Route::get('/ubigeo/district/{department_id}/{province_id}/list',['uses' => 'Api\UbigeoController@district_list']);
 Route::get('/locales/markers/{district_id}', ['uses' => 'Api\LocalController@markers']);
 
-Route::post('/ubigeo/save_cookie',['uses' => 'Api\UbigeoController@save_cookie']);
+//Route::post('/ubigeo/save_cookie',['uses' => 'Api\UbigeoController@save_cookie']);
+
+Route::post('/form',['uses' => 'Api\FormController@store']);

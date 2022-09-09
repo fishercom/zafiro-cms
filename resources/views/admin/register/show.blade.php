@@ -14,24 +14,10 @@
 		</div>
 	@endif
 		<div class="form-group row">
-			<div class="col-sm-3 col-lg-2"><label>Nombres</label></div>
-			<div class="col-sm-9 col-lg-10">{{ $register->first_name }}</div>
+			<div class="col-sm-3 col-lg-2"><label>Nombre</label></div>
+			<div class="col-sm-9 col-lg-10">{{ $register->name }}</div>
 		</div>
 
-		<div class="form-group row">
-			<div class="col-sm-3 col-lg-2"><label>Apellidos</label></div>
-			<div class="col-sm-9 col-lg-10">{{ $register->last_name }}</div>
-		</div>
-
-		<div class="form-group row">
-			<div class="col-sm-3 col-lg-2"><label>DNI</label></div>
-			<div class="col-sm-9 col-lg-10">{{ $register->dni }}</div>
-		</div>
-
-		<div class="form-group row">
-			<div class="col-sm-3 col-lg-2"><label>Direcci&oacute;n</label></div>
-			<div class="col-sm-9 col-lg-10">{{ $register->address }}</div>
-		</div>
 		<div class="form-group row">
 			<div class="col-sm-3 col-lg-2"><label>Tel&eacute;fono</label></div>
 			<div class="col-sm-9 col-lg-10">{{ $register->phone }}</div>
@@ -43,8 +29,8 @@
 		</div>
 
 		<div class="form-group row">
-			<div class="col-sm-3 col-lg-2"><label>Comentario</label></div>
-			<div class="col-sm-9 col-lg-10">{{ $register->comments }}</div>
+			<div class="col-sm-3 col-lg-2"><label>Mensaje</label></div>
+			<div class="col-sm-9 col-lg-10">{{ $register->message }}</div>
 		</div>
 
 	@foreach ($fields as $rf)

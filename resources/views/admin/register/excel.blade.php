@@ -5,12 +5,9 @@ $fheads=App\Models\CmsFormField::Select()
 ?>
 <table>
 <tr>
-    <th>Nombres</th>
-    <th>Apellidos</th>
-    <th>DNI</th>
-    <th>Direcci&oacute;n</th>
-    <th>Tel&eacute;fono</th>
+    <th>Nombre</th>
     <th>Email</th>
+    <th>Tel&eacute;fono</th>
     <th>Comentario</th>
 @foreach ($fheads as $fh)
     <th>{!! $fh->name !!}</th>
@@ -19,12 +16,9 @@ $fheads=App\Models\CmsFormField::Select()
 </tr>
 @foreach ($registers as $register)
 <tr>
-    <td>{{ $register->first_name }}</td>
-    <td>{{ $register->last_name }}</td>
-    <td>{{ $register->dni }}</td>
-    <td>{{ $register->address }}</td>
-    <td>{{ $register->phone }}</td>
+    <td>{{ $register->name }}</td>
     <td>{{ $register->email }}</td>
+    <td>{{ $register->phone }}</td>
     <td>{{ $register->comments }}</td>
 @foreach ($fheads as $fh)
 <?php
