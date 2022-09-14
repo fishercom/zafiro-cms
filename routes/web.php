@@ -43,6 +43,11 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function(){
 		Route::post('article/sort', 'ArticleController@sort');
 		Route::post('schema/sort', 'SchemaController@sort');
 		Route::post('parameter/sort', 'ParameterController@sort');
+
+		Route::get('config/google_oauth/login', 'ConfigController@google_oauth');
+		Route::get('config/google_oauth/callback', 'ConfigController@google_oauth_callback');
+		Route::post('config/google_oauth/test', ['as' => 'config.test_mail', 'uses'=>'ConfigController@google_oauth_test']);
+
 	});
 });
 

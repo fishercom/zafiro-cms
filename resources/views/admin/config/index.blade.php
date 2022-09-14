@@ -25,7 +25,33 @@
         </td>
     </tr>
     @endforeach
-    </table>
+<!--
+    <tr>
+      <td>Google oAuth 2</td>
+      <td>
+{!! Form::model(null, ['route' => ['config.test_mail', null], 'method'=>'POST', 'class'=>'form-horizontal']) !!}
+    <div class="row">
+      <div class="col-sm-6">
+        {!! Form::email('email', null, ['class'=>'form-control', 'required'=>true, 'placeholder'=>'E-mail de prueba']) !!}
+      </div>
+      <div class="col-sm-6">
+        <button type="submit" class="btn btn-success"><span class="fa fa-envelope"></span> Test Mail </button>
+        <a class="btn btn-primary" role="button" href="{{ url('/admin/config/google_oauth/login') }}">
+        <span class="fa fa-rss"></span> Refrescar Token </a>
+      </div>
+    </div>
+    @if(Session::has('status'))
+      <span class="badge label label-primary">
+        {{Session::get('status')}}
+      </span>
+    @endif
+{!! Form::close() !!}
+      </td>
+      <td>
+      </td>
+  </tr>
+-->
+  </table>
     {!! $configs->render() !!}
   </div>
   <div class="box-footer">
