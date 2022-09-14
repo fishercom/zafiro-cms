@@ -45,6 +45,10 @@ return [
             'auth_mode' => null,
         ],
 
+        'google' => [
+            'transport' => 'google',
+        ],
+
         'ses' => [
             'transport' => 'ses',
         ],
