@@ -51,14 +51,12 @@ class FormController extends Controller {
     	$fields=$request->get('fields');
 		$files =$request->file('files');
 
-        /*
         $rules = ['captcha' => 'required|captcha'];
-        $validator = Validator::make(['captcha'=>$request->get('captcha')], $rules);
+        $validator = Validator::make(['captcha'=>$request->get('g-recaptcha-response')], $rules);
 	    if ($validator->fails())
         {
 			return response()->json(['resp' => '0', 'msg' => 'El captcha ingresado es incorrecto.']);
         }
-        */
 
         $rules = ['form_id'=>'required', 'email'=>'required', 'acceptance'=>'required'];
         $validator = Validator::make($request->all(), $rules);

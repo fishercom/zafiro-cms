@@ -29,10 +29,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Carbon::setUTF8(true);
-        Carbon::setLocale(config('app.locale'));
+        Validator::extend('captcha', 'App\Rules\ReCaptcha@passes');
+
         setlocale(LC_TIME, config('app.locale'));
         date_default_timezone_set(config('app.timezone'));
+        //Carbon::setUTF8(true);
+        //Carbon::setLocale(config('app.locale'));
 
         Paginator::useBootstrap();
         Schema::defaultStringLength(191);
