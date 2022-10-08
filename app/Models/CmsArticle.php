@@ -25,7 +25,7 @@ class CmsArticle extends Model {
     public $front_view = null;
     public $route_view = null;
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [
