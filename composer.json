@@ -9,6 +9,7 @@
         "cviebrock/eloquent-sluggable": "^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
+        "giansalex/peru-consult": "^4.5",
         "google/apiclient": "^2.12",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
