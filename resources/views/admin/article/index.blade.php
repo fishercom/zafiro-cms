@@ -68,7 +68,7 @@ function Filter(sender){
             $title = $article->title;
 
         $active = $article->active? '<i class="fa fa-check"></i>' : NULL;
-        $params = '?schema_id='.$article->schema_id.'&site_id='.$article->site_id.'&parent_id='.$article->parent_id.'&page='.$page;
+        $params = '?schema_id='.$article->schema_id.'&site_id='.$article->site_id.'&parent_id='.$article->parent_id.'&lang_id='.$article->lang_id.'&page='.$page;
     ?>
     <tr>
         <td>{!! $title !!}</td>
@@ -107,7 +107,7 @@ if($cntsch>1 || ($cntsch==1 && $iterat>0 && $iterat==$cntart)){
 }
 else{
     if($cntsch==1){
-    $params = '?schema_id='.$schemas[0]->id.'&parent_id='.$parent->id.'&site_id='.$site->id.'&page='.$page;
+    $params = '?schema_id='.$schemas[0]->id.'&parent_id='.$parent->id.'&site_id='.$site->id.'&lang_id='.$lang->id.'&page='.$page;
 ?>
     <a class="btn btn-success" role="button" href="{{ route('article.create') }}{{ $params }}">
     <i class="fa fa-plus"></i> nuevo contenido </a>
@@ -119,7 +119,7 @@ else{
 
 @if ($parent->id != NULL)
 <?php
-    $params = '?schema_id='.$parent->schema_id.'&parent_id='.$parent->parent_id.'&site_id='.$site->id;
+    $params = '?schema_id='.$parent->schema_id.'&parent_id='.$parent->parent_id.'&site_id='.$site->id.'&lang_id='.$lang->id;
 ?>
     <a class="btn btn-danger" role="button" href="{{ route('article.index') }}{{ $params }}">
     <i class="fa fa-arrow-left"></i> Regresar </a>
