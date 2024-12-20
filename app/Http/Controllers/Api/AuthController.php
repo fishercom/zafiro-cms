@@ -2,12 +2,12 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\API\BaseController as BaseController;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Auth;
 use Validator;
 
-class AuthController extends BaseController
+class AuthController extends Controller
 {
 
     public function user(Request $request) {

@@ -55,8 +55,8 @@ Route::get('/',['uses' => 'FrontController@index']);
 Route::get('/{iso}',['uses' => 'FrontController@home'])->where('iso', 'es|en|de|fr');
 Route::get('/{slug}', ['uses' => 'FrontController@page']);
 
-Route::post('payment_response', ['uses' => 'PaymentController@payment_response']);
+//Route::post('payment_response', ['uses' => 'PaymentController@payment_response']);
 Route::post('front/login', 'FrontController@post_login');
 Route::post('front/logout', 'FrontController@post_logout');
-Route::post('cart/add/{product_id}', 'CartController@store');
-Route::post('cart/update', 'CartController@update');
+//Route::post('cart/add/{product_id}', 'CartController@store');
+//Route::post('cart/update', 'CartController@update');

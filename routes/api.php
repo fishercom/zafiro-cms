@@ -28,7 +28,7 @@ Route::get('/parameter/{id}',['uses' => 'Api\ParameterController@info']);
 Route::get('/ubigeo/department/list',['uses' => 'Api\UbigeoController@department_list']);
 Route::get('/ubigeo/province/{department_id}/list',['uses' => 'Api\UbigeoController@province_list']);
 Route::get('/ubigeo/district/{department_id}/{province_id}/list',['uses' => 'Api\UbigeoController@district_list']);
-Route::get('/locales/markers/{district_id}', ['uses' => 'Api\LocalController@markers']);
+//Route::get('/locales/markers/{district_id}', ['uses' => 'Api\LocalController@markers']);
 
 //Route::post('/ubigeo/save_cookie',['uses' => 'Api\UbigeoController@save_cookie']);
 
