@@ -28,16 +28,25 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(UrlGenerator $url)
     {
-        Validator::extend('captcha', 'App\Rules\ReCaptcha@passes');
+        if(config('app.env') === 'development' || config('app.env') === 'production') {
+            \URL::forceScheme('https');
+        }
 
-        setlocale(LC_TIME, config('app.locale'));
+        //
+        ini_set('memory_limit', '256M');
         date_default_timezone_set(config('app.timezone'));
-        //Carbon::setUTF8(true);
-        //Carbon::setLocale(config('app.locale'));
+        setlocale(LC_TIME, config('app.locale'));
+        Carbon::setLocale(config('app.locale'));
+        //
 
         Paginator::useBootstrap();
         Schema::defaultStringLength(191);
+        Validator::extend('captcha', 'App\Rules\ReCaptcha@passes');
+
+        if (app()->environment('production')) {
+            $url->forceScheme('https');
+        }
     }
 }

@@ -126,7 +126,8 @@ class ArticleController extends AdminController {
 
 		$article = new CmsArticle;
 		$article->schema_id = $request->schema_id;
-		if (Request::has('parent_id')) $article->parent_id = $request->parent_id;
+		$article->parent_id = ($request->parent_id == null) ? null : $request->parent_id;
+		//if (Request::has('parent_id')) $article->parent_id = $request->parent_id;
 		$article->site_id = $this->site->id;
 		$article->lang_id = $request->lang_id;
 		$article->title = $request->title;
@@ -143,6 +144,7 @@ class ArticleController extends AdminController {
 		$article->ref_target = $request->ref_target;
 		$article->metadata = $request->metadata;
 		$article->in_home = $request->in_home;
+		$article->hide_menu = $request->hide_menu;
 		$article->active = $request->active;
 		$article->save();
 
@@ -197,6 +199,7 @@ class ArticleController extends AdminController {
 		$article->ref_target = $request->ref_target;
 		$article->metadata = $request->metadata;
 		$article->in_home = $request->in_home;
+		$article->hide_menu = $request->hide_menu;
 		$article->slug = $request->slug;
 		$article->active = $request->active;
 		$article->save();

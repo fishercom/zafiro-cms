@@ -12,7 +12,6 @@ use App\Http\Requests\Admin\RegisterRequest;
 use App\Models\CmsRegister;
 use App\Models\CmsRegisterField;
 use App\Models\CmsForm;
-use App\Util\ExcelExport;
 
 use Maatwebsite\Excel\Facades\Excel;
 use View;
@@ -59,7 +58,15 @@ class RegisterController extends AdminController {
              });
 
 		if(Request::has('export')){
-			return Excel::download(new ExcelExport($registers->get(), 'admin.register.excel'), 'registro_'.date('dmY').'.xlsx');
+			return Excel::create('Registro_'.date('dmY'), function($excel) use($registers){
+			    $excel->sheet('Lista', function($sheet) use($registers){
+			        // Sheet manipulation
+					//$sheet->fromArray($registers->get()->toArray());
+					$sheet->loadView('admin.register.excel')
+							->with('registers', $registers->get())
+							->with('form_id', $this->form->id);
+			    });
+			})->download('xlsx');
 		}
 
 		$registers->Paginate()

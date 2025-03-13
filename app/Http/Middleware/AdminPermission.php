@@ -20,12 +20,12 @@ class AdminPermission
     public function handle($request, Closure $next)
     {
         //Validate Admin Profile
-        $user=Auth::guard('admin')->user();
+        $user = Auth::user();
         $profile=$user->profile;
         if(!$profile){
             //redirect to error page
-            Auth::guard('admin')->logout();
-    
+            Auth::logout();
+
             return redirect()->back()
                 ->withInput()
                 ->with('error','Login failed, please try again!');
@@ -60,7 +60,7 @@ class AdminPermission
         if(!$permission && $profile->id!=1){
             //redirect to error page
             return redirect('admin/home/permission');
-        }            
+        }
 
         View::share('current_module', $module);
 

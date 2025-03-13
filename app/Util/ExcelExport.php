@@ -1,25 +1,28 @@
 <?php
 namespace App\Util;
 
-use Illuminate\Contracts\View\View;
-use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ExcelExport implements FromView
+class ExcelExport implements FromCollection, WithHeadings
 {
+    use Exportable;
+    private $head, $data;
 
-    private $data;
-    private $view;
-
-    public function __construct($data, $view)
+    public function __construct($head, $data)
     {
+        $this->head = $head;
         $this->data = $data;
-        $this->view = $view;
     }
 
-    public function view(): View
+    public function collection()
     {
-        return view($this->view, [
-            'data' => $this->data,
-        ]);
+        return collect($this->data);
+    }
+
+    public function headings(): array
+    {
+        return $this->head;
     }
 }
