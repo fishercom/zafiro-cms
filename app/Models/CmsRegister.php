@@ -11,7 +11,7 @@ class CmsRegister extends Model {
 	 * @var array
 	 */
 	protected $table = 'cms_registers';
-	protected $fillable = ['form_id', 'contact_id', 'name', 'email', 'phone', 'comments', 'message', 'review', 'review_date'];
+	protected $fillable = ['form_id', 'contact_id', 'name', 'email', 'phone', 'message', 'acceptance', 'review', 'review_date'];
 
 
     public function form()

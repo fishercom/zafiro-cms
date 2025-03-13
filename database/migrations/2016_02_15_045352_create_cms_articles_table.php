@@ -34,6 +34,7 @@ class CreateCmsArticlesTable extends Migration {
 			$table->string('ref_target', 15)->nullable();
 			$table->json('metadata')->nullable();
 			$table->boolean('in_home')->nullable();
+			$table->boolean('hide_menu')->nullable();
 			$table->integer('position')->unsigned()->nullable();
 			$table->string('slug', 500);
 			$table->boolean('active')->nullable();

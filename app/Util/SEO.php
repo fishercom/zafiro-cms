@@ -13,6 +13,9 @@ class SEO {
                 $allowed_chars='[a-z0-9\/:_\-_\.\?\$,~=#&%\+@]';
                 $url=!preg_match('/^((http|https|ftp):\/\/)|(mailto:)'. $allowed_chars .'+$/i', strtolower($article->ref_url))? url('http://'.$article->ref_url): $article->ref_url;
                 break;
+            case 3:
+                $url=youtube_url($article->ref_url);
+                break;
             default:
                 $url=self::url_empty();
                 break;

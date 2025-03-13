@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (!function_exists('get_article')) {
     /**
@@ -58,11 +58,23 @@ if (!function_exists('get_article_slug')) {
     /**
      * Returns an article object
      * */
-    function get_article_slug($slug, $site_id)
+    function get_article_slug($slug, $site_id=1)
     {
         $page = \App\Models\CmsArticle::where('slug', $slug)
                 ->where('site_id', $site_id)
                 ->first();
+
+        return $page;
+    }
+}
+
+if (!function_exists('get_article_id')) {
+    /**
+     * Returns an article object
+     * */
+    function get_article_id($id)
+    {
+        $page =\App\Models\CmsArticle::find($id);
 
         return $page;
     }
@@ -108,6 +120,31 @@ if (!function_exists('transl')) {
     {
 
         return App\Util\Transl::get($word);
+    }
+}
+
+if (!function_exists('get_month')) {
+    /**
+     * Returns a translation of current lang
+     * */
+    function get_month($id, $iso){
+        $months = [
+                    'es'=>['01'=>'Enero', '02'=>'Febrero', '03'=>'Marzo', '04'=>'Abril', '05'=>'Mayo', '06'=>'Junio', '07'=>'Julio', '08'=>'Agosto', '09'=>'Setiembre', '10'=>'Octubre', '11'=>'Noviembre', '12'=>'Diciembre'],
+                    'en'=>['01'=>'January', '02'=>'February', '03'=>'March', '04'=>'April', '05'=>'May', '06'=>'June', '07'=>'July', '08'=>'August', '09'=>'September', '10'=>'October', '11'=>'November', '12'=>'December']
+                ];
+        return $months[$iso][$id];
+    }
+}
+
+if (!function_exists('format_date')) {
+    /**
+     * Returns a translation of current lang
+     * */
+    function format_date($sdate, $iso){
+        $date = strtotime($sdate);
+        $month = get_month(date('m', $date), $iso);
+
+        return $month .' '. date('d, Y', $date);
     }
 }
 
@@ -269,5 +306,50 @@ if (!function_exists('exportExcel')){
     function exportExcel($head, $data, $filename)
     {
         return Excel::download(new \App\Util\ExcelExport($head, $data), $filename.'.xlsx');
+    }
+}
+if(!function_exists('wrap_title')){
+    function wrap_title($text, $chars, $brln=false, $tag='strong'){
+      if(strlen($text)>$chars && str_word_count($text)>1){
+        $arr = explode('||', wordwrap($text, $chars, "||"));
+
+        return $arr[0].($brln? '<br>':'')." <{$tag}>".implode(" ", array_slice($arr, 1))."</{$tag}>";
+      }
+      else
+        return "<strong>".$text."</strong>";
+    }
+}
+
+if(!function_exists('break_title')){
+    function break_title($text, $tag='strong'){
+      if(str_word_count($text)>1){
+        $chars = intval(strlen($text)/2);
+        $arr = explode('||', wordwrap($text, $chars, "||"));
+
+        return $arr[0]."<br><{$tag}>".implode(" ", array_slice($arr, 1))."</{$tag}>";
+      }
+      else
+        return "<strong>".$text."</strong>";
+    }
+}
+
+if(!function_exists('break_content')){
+  function break_content($text, $tag=null, $chars=0){
+    $start = $tag? "<{$tag}>": "";
+    $end = $tag? "</{$tag}>": "";
+    if(str_word_count($text)>1){
+      $chars = ($chars==0)? intval(strlen($text)/2): $chars;
+      $arr = explode('||', wordwrap($text, $chars, "||"));
+
+      return $start.$arr[0].$end."<br/>".implode(" ", array_slice($arr, 1));
+    }
+    else
+      return $text;
+  }
+}
+
+if(!function_exists('html_content')){
+    function html_content($html){
+        return preg_replace('/<ul>/is', '<ul class="lista_checks">', $html);
     }
 }

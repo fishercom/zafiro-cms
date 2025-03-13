@@ -45,6 +45,8 @@ class FrontController extends Controller {
 		$page->front_view = $page->schema->front_view;
 		$page->route_view = 'front.templates.'.$page->front_view;
 
+		Transl::prepare($lang->iso);
+
 		//setlocale(LC_ALL, $lang->iso);
 		return view('front.home', compact('page', 'lang'));
 	}
@@ -82,8 +84,13 @@ class FrontController extends Controller {
 		$page->route_view = 'front.templates.'.$page->front_view;
 		$lang = CmsLang::find($page->lang_id);
 
+		Transl::prepare($lang->iso);
+
 		//setlocale(LC_ALL, $lang->iso);
-		return view('front.page', compact('page', 'lang'));
+
+        $view = 'front.'.( in_array($page->front_view, ['repositorio', 'repositorio_gerencia', 'repositorio_seccion'])? 'repositorio': 'page' );
+
+		return view($view, compact('page', 'lang'));
 	}
 
 	public function popup()

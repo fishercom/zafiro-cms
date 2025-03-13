@@ -8,6 +8,12 @@ class UbgDistrict extends Model
 {
 	protected $table = 'ubg_districts';
 
+    public $incrementing = false;
+    protected $casts = [
+        'id' => 'string',
+    ];
+    protected $keyType = 'string';
+
 	/**
 	 * The attributes that are mass assignable.
 	 *
